@@ -1,0 +1,8 @@
+name: module
+description: template module
+version: 0.0.1
+vars:
+  name: 
+    type: string
+    description: module name
+    prompt: What is this module called ?

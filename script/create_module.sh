@@ -1,0 +1,1 @@
+mason make module -o lib/module
