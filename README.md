@@ -2,13 +2,21 @@
 Flutter Base Project
 
 ## Getting Started
-🎯 Activate mason from https://pub.dev for easy create module
+Simply run
 ```sh
-dart pub global activate mason_cli
-mason get
+./script/setup.sh
 ```
 
+Rename / Change (Manually)
+1. all remaining "com.example.base_project" to "your.bundle.id"
+2. all "base_project" to your "package_name"
+
 ## Script
+Getting started
+```sh
+./script/setup.sh
+```
+
 Simple build runner
 ```sh
 ./script/build_runner.sh
