@@ -1,3 +1,4 @@
+import 'package:base_project/core/extensions/build_context_ext.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -19,6 +20,8 @@ class HomeUI extends StatefulWidget {
 class _HomeUIState extends State<HomeUI> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text("Home Page")));
+    return Scaffold(
+      body: Center(child: Text("Home Page with ${context.intl.language}")),
+    );
   }
 }

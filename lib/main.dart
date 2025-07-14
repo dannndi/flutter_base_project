@@ -1,3 +1,4 @@
+import 'package:base_project/core/l10n/generated/app_localizations.dart';
 import 'package:base_project/core/route/app_route.dart';
 import 'package:base_project/core/theme/app_color.dart';
 import 'package:base_project/core/theme/app_theme.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       child: MaterialApp.router(
+        locale: Locale("en"),
         debugShowCheckedModeBanner: false,
         routerConfig: AppRoute.router,
         title: AppUtils.appName,
@@ -39,6 +41,8 @@ class MyApp extends StatelessWidget {
             child: child ?? const SizedBox(),
           );
         },
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
       ),
     );
   }
