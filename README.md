@@ -39,3 +39,7 @@ Create module
 ```sh
 ./script/create_module.sh
 ```
+Generate translation
+```sh
+./script/gen_translate.sh
+```
