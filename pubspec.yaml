@@ -41,7 +41,7 @@ dependencies:
   # http client
   dio: ^5.8.0+1
   # class generator
-  freezed: ^3.1.0
+  freezed_annotation: ^3.1.0
   json_annotation: ^4.9.0
   # env
   flutter_dotenv: ^5.2.1
@@ -59,13 +59,15 @@ dependencies:
   extended_image: ^10.0.1
   # internationalization
   intl: ^0.19.0
+  # state management
+  flutter_bloc: ^9.1.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
   build_runner: ^2.5.4
-  freezed_annotation: ^3.1.0
+  freezed: ^3.1.0
   json_serializable: ^6.9.5
   logger: ^2.6.0
 

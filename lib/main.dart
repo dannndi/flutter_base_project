@@ -1,3 +1,4 @@
+import 'package:base_project/core/bloc/language/language_cubit.dart';
 import 'package:base_project/core/l10n/generated/app_localizations.dart';
 import 'package:base_project/core/route/app_route.dart';
 import 'package:base_project/core/theme/app_color.dart';
@@ -5,6 +6,8 @@ import 'package:base_project/core/theme/app_theme.dart';
 import 'package:base_project/core/utils/app_utils.dart';
 import 'package:base_project/main_module.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 void main() async {
@@ -26,23 +29,34 @@ class MyApp extends StatelessWidget {
           duration: const Duration(milliseconds: 1500),
         ),
       ),
-      child: MaterialApp.router(
-        locale: Locale("en"),
-        debugShowCheckedModeBanner: false,
-        routerConfig: AppRoute.router,
-        title: AppUtils.appName,
-        theme: AppTheme.light,
-        themeMode: ThemeMode.light,
-        builder: (context, child) {
-          final MediaQueryData data = MediaQuery.of(context);
-          return MediaQuery(
-            // making sure the text scale not affected by system font size
-            data: data.copyWith(textScaler: const TextScaler.linear(1.0)),
-            child: child ?? const SizedBox(),
-          );
-        },
-        localizationsDelegates: AppLocalizations.localizationsDelegates,
-        supportedLocales: AppLocalizations.supportedLocales,
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => LanguageCubit(GetIt.I.get())..init(),
+          ),
+        ],
+        child: Builder(
+          builder: (context) {
+            return MaterialApp.router(
+              locale: context.watch<LanguageCubit>().state.current,
+              debugShowCheckedModeBanner: false,
+              routerConfig: AppRoute.router,
+              title: AppUtils.appName,
+              theme: AppTheme.light,
+              themeMode: ThemeMode.light,
+              builder: (context, child) {
+                final MediaQueryData data = MediaQuery.of(context);
+                return MediaQuery(
+                  // making sure the text scale not affected by system font size
+                  data: data.copyWith(textScaler: const TextScaler.linear(1.0)),
+                  child: child ?? const SizedBox(),
+                );
+              },
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+            );
+          },
+        ),
       ),
     );
   }

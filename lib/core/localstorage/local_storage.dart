@@ -1,8 +1,4 @@
-enum LocalStorageResult {
-  saved,
-  deleted,
-  failed,
-}
+enum LocalStorageResult { saved, deleted, failed }
 
 abstract class LocalStorage {
   Future<void> init();
@@ -15,7 +11,5 @@ abstract class LocalStorage {
   Future<LocalStorageResult> removeData(String key);
 
   /// keys
-  static const String onboarding = "on_boarding";
-  static const String userData = "user_data";
-  static const String marketingAdsLastShown = "marketing_ads_last_shown";
+  static const String savedLanguage = "saved_language";
 }
