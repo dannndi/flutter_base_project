@@ -1,4 +1,4 @@
-import 'package:base_project/core/bloc/language/language_cubit.dart';
+import 'package:base_project/core/l10n/cubit/language_cubit.dart';
 import 'package:base_project/core/l10n/generated/app_localizations.dart';
 import 'package:base_project/core/route/app_route.dart';
 import 'package:base_project/core/theme/app_color.dart';

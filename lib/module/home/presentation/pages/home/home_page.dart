@@ -1,4 +1,4 @@
-import 'package:base_project/core/bloc/language/language_cubit.dart';
+import 'package:base_project/core/l10n/cubit/language_cubit.dart';
 import 'package:base_project/core/extensions/build_context_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
