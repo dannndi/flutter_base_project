@@ -23,7 +23,7 @@ class DesignBottomNavbar extends StatelessWidget {
         bottom: MediaQuery.of(context).padding.bottom + 16,
       ),
       decoration: BoxDecoration(
-        color: AppColor.white,
+        color: Theme.of(context).scaffoldBackgroundColor,
         boxShadow: [
           BoxShadow(
             color: AppColor.black.withValues(alpha: 0.06),
@@ -41,7 +41,6 @@ class DesignBottomNavbar extends StatelessWidget {
                   child: GestureDetector(
                     onTap: () => onTap(entry.key),
                     child: Container(
-                      color: Colors.white,
                       padding: const EdgeInsets.only(top: 16),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,

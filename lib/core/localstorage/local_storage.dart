@@ -12,4 +12,5 @@ abstract class LocalStorage {
 
   /// keys
   static const String savedLanguage = "saved_language";
+  static const String savedTheme = "saved_theme";
 }

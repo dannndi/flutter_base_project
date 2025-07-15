@@ -29,7 +29,10 @@ class AppTheme {
   );
 
   static ThemeData dark = ThemeData(
-    colorScheme: ColorScheme.fromSeed(seedColor: AppColor.primaryColor),
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: AppColor.primaryColor,
+      brightness: Brightness.dark,
+    ),
     brightness: Brightness.dark,
     scaffoldBackgroundColor: AppColor.backgroundBlack,
     primaryColor: AppColor.primaryColor,

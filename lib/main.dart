@@ -3,6 +3,7 @@ import 'package:base_project/core/l10n/generated/app_localizations.dart';
 import 'package:base_project/core/route/app_route.dart';
 import 'package:base_project/core/theme/app_color.dart';
 import 'package:base_project/core/theme/app_theme.dart';
+import 'package:base_project/core/theme/cubit/theme_cubit.dart';
 import 'package:base_project/core/utils/app_utils.dart';
 import 'package:base_project/main_module.dart';
 import 'package:flutter/material.dart';
@@ -31,9 +32,8 @@ class MyApp extends StatelessWidget {
       ),
       child: MultiBlocProvider(
         providers: [
-          BlocProvider(
-            create: (context) => LanguageCubit(GetIt.I.get())..init(),
-          ),
+          BlocProvider(create: (_) => LanguageCubit(GetIt.I.get())..init()),
+          BlocProvider(create: (_) => ThemeCubit(GetIt.I.get())..init()),
         ],
         child: Builder(
           builder: (context) {
@@ -43,7 +43,8 @@ class MyApp extends StatelessWidget {
               routerConfig: AppRoute.router,
               title: AppUtils.appName,
               theme: AppTheme.light,
-              themeMode: ThemeMode.light,
+              darkTheme: AppTheme.dark,
+              themeMode: context.watch<ThemeCubit>().state.current,
               builder: (context, child) {
                 final MediaQueryData data = MediaQuery.of(context);
                 return MediaQuery(

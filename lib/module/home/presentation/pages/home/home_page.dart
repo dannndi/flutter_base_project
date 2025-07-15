@@ -1,5 +1,6 @@
 import 'package:base_project/core/l10n/cubit/language_cubit.dart';
 import 'package:base_project/core/extensions/build_context_ext.dart';
+import 'package:base_project/core/theme/cubit/theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,20 +25,46 @@ class _HomeUIState extends State<HomeUI> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: GestureDetector(
-          onTap: () {
-            final current = context.read<LanguageCubit>().state.current;
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            GestureDetector(
+              onTap: () {
+                final current = context.read<LanguageCubit>().state.current;
 
-            if (current.languageCode == "en") {
-              context.read<LanguageCubit>().changeLanguage(Locale("id"));
-            } else {
-              context.read<LanguageCubit>().changeLanguage(Locale("en"));
-            }
-          },
-          child: Text(
-            "Tap to change language\ncurrent = ${context.intl.language}",
-            textAlign: TextAlign.center,
-          ),
+                if (current.languageCode == "en") {
+                  context.read<LanguageCubit>().changeLanguage(Locale("id"));
+                } else {
+                  context.read<LanguageCubit>().changeLanguage(Locale("en"));
+                }
+              },
+              child: Text(
+                "Tap to change language\ncurrent = ${context.intl.language}",
+                textAlign: TextAlign.center,
+              ),
+            ),
+            const SizedBox(height: 16),
+            GestureDetector(
+              onTap: () {
+                final current = context.read<ThemeCubit>().state.current;
+
+                if (current == ThemeMode.system || current == ThemeMode.light) {
+                  context.read<ThemeCubit>().changeTheme(ThemeMode.dark);
+                } else {
+                  context.read<ThemeCubit>().changeTheme(ThemeMode.light);
+                }
+              },
+              child: BlocBuilder<ThemeCubit, ThemeState>(
+                builder: (context, state) {
+                  return Text(
+                    "Tap to change language\ncurrent = ${state.current}",
+                    textAlign: TextAlign.center,
+                  );
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );
