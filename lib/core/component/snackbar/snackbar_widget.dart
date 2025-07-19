@@ -18,30 +18,42 @@ void showSnackbar(
   SnackbarType? type,
   bool avoidBottomBar = false,
 }) {
-  final backgroundColor =
-      type == null ? AppColor.neutral : type.backgroundColor;
+  final backgroundColor = type == null
+      ? AppColor.neutral
+      : type.backgroundColor;
 
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       behavior: SnackBarBehavior.floating,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      margin:
-          avoidBottomBar
-              ? const EdgeInsets.only(bottom: 64, left: 16, right: 16)
-              : null,
+      margin: avoidBottomBar
+          ? const EdgeInsets.only(bottom: 64, left: 16, right: 16)
+          : null,
       backgroundColor: backgroundColor,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       content: Row(
         children: [
           if (prefixIcon != null) ...[prefixIcon, const SizedBox(width: 8)],
-          Expanded(child: Text(message)),
+          Expanded(
+            child: Text(
+              message,
+              style: Theme.of(
+                context,
+              ).textTheme.bodyMedium?.copyWith(color: AppColor.white),
+            ),
+          ),
           Builder(
             builder: (ctx) {
               return TextButton(
                 onPressed: () {
                   ScaffoldMessenger.of(ctx).hideCurrentSnackBar();
                 },
-                child: const Text("OK"),
+                child: Text(
+                  "OK",
+                  style: Theme.of(
+                    context,
+                  ).textTheme.titleSmall?.copyWith(color: AppColor.white),
+                ),
               );
             },
           ),
