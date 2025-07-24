@@ -23,6 +23,7 @@ class DesignTextfield extends StatefulWidget {
     this.obscureText = false,
     this.textAlignVertical,
     this.textInputAction,
+    this.onHideText,
   });
 
   final DesignTextfieldType type;
@@ -42,6 +43,7 @@ class DesignTextfield extends StatefulWidget {
   final bool obscureText;
   final TextAlignVertical? textAlignVertical;
   final TextInputAction? textInputAction;
+  final void Function(bool)? onHideText;
 
   @override
   State<DesignTextfield> createState() => _DesignTextfieldState();
@@ -101,68 +103,64 @@ class _DesignTextfieldState extends State<DesignTextfield> {
         ],
         ValueListenableBuilder(
           valueListenable: _obscureNotifier,
-          builder:
-              (context, obscure, _) => TextField(
-                enabled: widget.enabled,
-                focusNode: widget.focusNode,
-                textAlignVertical: widget.textAlignVertical,
-                controller: widget.textEditingController,
-                style: theme.textTheme.bodyMedium,
-                onChanged: widget.onChanged,
-                onSubmitted: widget.onSubmitted,
-                obscureText: obscure,
-                decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 16,
-                  ),
-                  border: _border,
-                  enabledBorder: _border,
-                  disabledBorder: _border,
-                  focusedBorder: _border.copyWith(
-                    borderSide: const BorderSide(
-                      width: 1,
-                      color: AppColor.primaryColor,
-                    ),
-                  ),
-                  errorBorder: _border.copyWith(
-                    borderSide: const BorderSide(
-                      width: 1,
-                      color: AppColor.danger,
-                    ),
-                  ),
-                  focusedErrorBorder: _border.copyWith(
-                    borderSide: const BorderSide(
-                      width: 1,
-                      color: AppColor.primaryColor,
-                    ),
-                  ),
-                  hintText: widget.hintText,
-                  hintStyle: theme.textTheme.bodyMedium?.copyWith(
-                    color: AppColor.neutral[400],
-                  ),
-                  errorText: widget.errorText,
-                  errorStyle: theme.textTheme.bodyMedium?.copyWith(
-                    color: AppColor.danger,
-                  ),
-                  prefixIcon: widget.prefix,
-                  suffixIcon:
-                      widget.obscureText
-                          ? IconButton(
-                            onPressed: () {
-                              _obscureNotifier.value = !_obscureNotifier.value;
-                            },
-                            icon: Icon(
-                              obscure ? Icons.visibility : Icons.visibility_off,
-                              color: AppColor.primaryColor,
-                            ),
-                          )
-                          : widget.suffix,
-                ),
-                keyboardType: widget.keyboardType,
-                textInputAction: widget.textInputAction,
-                maxLines: widget.maxLines,
+          builder: (context, obscure, _) => TextField(
+            enabled: widget.enabled,
+            focusNode: widget.focusNode,
+            textAlignVertical: widget.textAlignVertical,
+            controller: widget.textEditingController,
+            style: theme.textTheme.bodyMedium,
+            onChanged: widget.onChanged,
+            onSubmitted: widget.onSubmitted,
+            obscureText: obscure,
+            decoration: InputDecoration(
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: 16,
+                vertical: 16,
               ),
+              border: _border,
+              enabledBorder: _border,
+              disabledBorder: _border,
+              focusedBorder: _border.copyWith(
+                borderSide: const BorderSide(
+                  width: 1,
+                  color: AppColor.primaryColor,
+                ),
+              ),
+              errorBorder: _border.copyWith(
+                borderSide: const BorderSide(width: 1, color: AppColor.danger),
+              ),
+              focusedErrorBorder: _border.copyWith(
+                borderSide: const BorderSide(
+                  width: 1,
+                  color: AppColor.primaryColor,
+                ),
+              ),
+              hintText: widget.hintText,
+              hintStyle: theme.textTheme.bodyMedium?.copyWith(
+                color: AppColor.neutral[400],
+              ),
+              errorText: widget.errorText,
+              errorStyle: theme.textTheme.bodyMedium?.copyWith(
+                color: AppColor.danger,
+              ),
+              prefixIcon: widget.prefix,
+              suffixIcon: widget.obscureText
+                  ? IconButton(
+                      onPressed: () {
+                        _obscureNotifier.value = !_obscureNotifier.value;
+                        widget.onHideText?.call(_obscureNotifier.value);
+                      },
+                      icon: Icon(
+                        obscure ? Icons.visibility : Icons.visibility_off,
+                        color: AppColor.primaryColor,
+                      ),
+                    )
+                  : widget.suffix,
+            ),
+            keyboardType: widget.keyboardType,
+            textInputAction: widget.textInputAction,
+            maxLines: widget.maxLines,
+          ),
         ),
       ],
     );
