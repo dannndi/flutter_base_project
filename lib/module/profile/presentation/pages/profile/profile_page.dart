@@ -1,5 +1,4 @@
 import 'package:base_project/core/component/button/design_button.dart';
-import 'package:base_project/core/component/image/design_assets.dart';
 import 'package:base_project/core/component/image/design_image.dart';
 import 'package:base_project/core/component/textfield/design_textfield.dart';
 import 'package:base_project/core/theme/app_color.dart';

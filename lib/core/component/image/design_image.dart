@@ -1,9 +1,20 @@
+export './assets/network_assets.dart';
+export './assets/png_assets.dart';
+export './assets/svg_assets.dart';
+
 import 'package:base_project/core/component/image/design_assets.dart';
 import 'package:base_project/core/theme/app_color.dart';
 import 'package:extended_image/extended_image.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:skeletonizer/skeletonizer.dart';
+
+import 'package:base_project/core/component/image/assets/network_assets.dart';
+import 'package:base_project/core/component/image/assets/png_assets.dart';
+import 'package:base_project/core/component/image/assets/svg_assets.dart';
+import 'package:base_project/core/component/image/assets/file_assets_io.dart'
+    if (dart.library.html) 'package:base_project/core/component/image/assets/file_assets_web.dart';
 
 class DesignImage extends StatelessWidget {
   const DesignImage(
@@ -56,10 +67,12 @@ class DesignImage extends StatelessWidget {
 
   Widget get _failedWidget => LayoutBuilder(
     builder: (context, constraints) {
-      double width =
-          constraints.maxWidth.isInfinite ? 100.0 : constraints.maxWidth;
-      double height =
-          constraints.maxHeight.isInfinite ? 100.0 : constraints.maxHeight;
+      double width = constraints.maxWidth.isInfinite
+          ? 100.0
+          : constraints.maxWidth;
+      double height = constraints.maxHeight.isInfinite
+          ? 100.0
+          : constraints.maxHeight;
 
       return Skeleton.leaf(
         child: Container(
@@ -151,6 +164,10 @@ class DesignImage extends StatelessWidget {
     }
 
     if (asset is FileAssets) {
+      if (kIsWeb) {
+        throw "Web cannot use FileAssets";
+      }
+
       final localAssets = asset as FileAssets;
       return ExtendedImage.file(
         localAssets.file,
