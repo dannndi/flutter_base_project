@@ -44,7 +44,7 @@ dependencies:
   freezed_annotation: ^3.1.0
   json_annotation: ^4.9.0
   # env
-  flutter_dotenv: ^5.2.1
+  flutter_dotenv: ^6.0.0
   # local storage
   flutter_secure_storage: ^9.2.4
   # equality comparisons
@@ -52,7 +52,7 @@ dependencies:
   # dart ext
   dartz: ^0.10.1
   # loading wrapper
-  skeletonizer: ^1.4.3
+  skeletonizer: ^2.1.0+1
   # svg
   flutter_svg: ^2.2.0
   # image
@@ -67,7 +67,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
   build_runner: ^2.5.4
   freezed: ^3.1.0
   json_serializable: ^6.9.5
