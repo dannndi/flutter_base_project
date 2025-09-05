@@ -42,6 +42,7 @@ class DesignBottomNavbar extends StatelessWidget {
                     onTap: () => onTap(entry.key),
                     child: Container(
                       padding: const EdgeInsets.only(top: 16),
+                      color: Colors.transparent,
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -49,20 +50,18 @@ class DesignBottomNavbar extends StatelessWidget {
                           SizedBox(
                             height: 24,
                             width: 24,
-                            child:
-                                currentIndex == entry.key
-                                    ? entry.value.activeIcon
-                                    : entry.value.icon,
+                            child: currentIndex == entry.key
+                                ? entry.value.activeIcon
+                                : entry.value.icon,
                           ),
-                          const SizedBox(height: 6.5),
+                          const SizedBox(height: 6),
                           Text(
                             entry.value.label ?? "",
-                            style:
-                                currentIndex == entry.key
-                                    ? theme.textTheme.titleSmall?.copyWith(
-                                      color: AppColor.primaryColor,
-                                    )
-                                    : theme.textTheme.bodySmall,
+                            style: currentIndex == entry.key
+                                ? theme.textTheme.titleSmall?.copyWith(
+                                    color: AppColor.primaryColor,
+                                  )
+                                : theme.textTheme.bodySmall,
                             textAlign: TextAlign.center,
                             maxLines: 1,
                           ),
