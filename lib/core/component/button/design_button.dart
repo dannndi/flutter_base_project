@@ -145,18 +145,18 @@ class DesignButton extends StatelessWidget {
       case DesignButtonSize.medium:
         return const Size(144, 0);
       case DesignButtonSize.large:
-        return Size(MediaQuery.sizeOf(context).width, 42);
+        return Size(MediaQuery.sizeOf(context).width, 0);
     }
   }
 
   EdgeInsetsGeometry _getPadding() {
     switch (size) {
       case DesignButtonSize.mini:
-        return const EdgeInsets.symmetric(horizontal: 12, vertical: 10);
+        return const EdgeInsets.symmetric(horizontal: 12, vertical: 12);
       case DesignButtonSize.medium:
-        return const EdgeInsets.symmetric(horizontal: 16, vertical: 12);
+        return const EdgeInsets.symmetric(horizontal: 16, vertical: 16);
       case DesignButtonSize.large:
-        return const EdgeInsets.symmetric(horizontal: 24, vertical: 12);
+        return const EdgeInsets.symmetric(horizontal: 24, vertical: 20);
     }
   }
 
