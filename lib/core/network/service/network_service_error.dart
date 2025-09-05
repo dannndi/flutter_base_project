@@ -35,10 +35,9 @@ class NetworkServiceError extends Equatable implements Exception {
 
   factory NetworkServiceError.fromDioException(dynamic error) {
     if (error is DioException) {
-      final jsonData =
-          (error.response?.data is Map<String, dynamic>)
-              ? error.response?.data as Map<String, dynamic>
-              : {"status": 500, "message": "Server Error"};
+      final jsonData = (error.response?.data is Map<String, dynamic>)
+          ? error.response?.data as Map<String, dynamic>
+          : {"status": 500, "message": "Server Error"};
 
       switch (error.type) {
         case DioExceptionType.cancel:
@@ -128,5 +127,5 @@ class NetworkServiceError extends Equatable implements Exception {
   }
 
   @override
-  List<Object?> get props => [exceptionType];
+  List<Object?> get props => [statusCode, code, message, exceptionType, data];
 }

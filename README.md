@@ -65,3 +65,30 @@ final sub = AppEventBroadcaster.I.listen((event) {
 // Later, cancel when done
 sub.cancel();
 ```
+
+### 2. Safe API Call
+`handleRequest` allows you to **call APIs safely**, automatically handling network errors and returning a `FutureResult<T>` (`Either<Failure, T>`).
+
+**Note:** The API response JSON must follow this format:
+
+```json
+{
+  "status": 200,
+  "message": "Success",
+  "payload": { /* your data here, e.g., object or list */ }
+}
+```
+
+#### Example usage:
+```dart
+// Call API
+final result = await handleRequest(
+  execute: () async => apiService.getBanners(),
+);
+
+// Handle result
+result.fold(
+  (failure) => print('Error: ${failure.message}'),
+  (banners) => print('Got ${banners.length} banners'),
+);
+````
