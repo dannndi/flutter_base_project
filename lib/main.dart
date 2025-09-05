@@ -6,15 +6,14 @@ import 'package:base_project/core/theme/app_theme.dart';
 import 'package:base_project/core/theme/cubit/theme_cubit.dart';
 import 'package:base_project/core/utils/app_utils.dart';
 import 'package:base_project/main_module.dart';
+import 'package:base_project/core/utils/url_strategy/setup_url_strategy_io.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:get_it/get_it.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 void main() async {
-  /// for web only, comment / delete if not needed
-  usePathUrlStrategy();
+  setupUrlStrategy();
 
   WidgetsFlutterBinding.ensureInitialized();
   await MainModule.init();
