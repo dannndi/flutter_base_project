@@ -1,6 +1,9 @@
 import 'dart:async';
 
+import 'package:base_project/core/route/app_route_redirect.dart';
 import 'package:base_project/core/route/app_route_name.dart';
+import 'package:base_project/module/auth/presentation/pages/login/login_page.dart';
+import 'package:base_project/module/auth/presentation/pages/register/register_page.dart';
 import 'package:base_project/module/dashboard/dashboard_page.dart';
 import 'package:base_project/module/event/presentation/pages/event/event_page.dart';
 import 'package:base_project/module/home/presentation/pages/home/home_page.dart';
@@ -36,20 +39,24 @@ class AppRoute {
       ),
       GoRoute(
         path: "/onboarding",
+        name: AppRouteName.onBoarding,
         builder: (context, state) {
           return SizedBox();
         },
       ),
       GoRoute(
         path: "/auth",
+        name: AppRouteName.login,
+        redirect: AppRouteRedirect.needNoAuth,
         builder: (context, state) {
-          return SizedBox();
+          return LoginPage();
         },
         routes: [
           GoRoute(
             path: "register",
+            name: AppRouteName.register,
             builder: (context, state) {
-              return SizedBox();
+              return RegisterPage();
             },
           ),
         ],
@@ -75,6 +82,7 @@ class AppRoute {
             routes: [
               GoRoute(
                 path: "/event",
+                name: AppRouteName.event,
                 builder: (context, state) {
                   return EventPage();
                 },
@@ -85,6 +93,7 @@ class AppRoute {
             routes: [
               GoRoute(
                 path: "/sponsor",
+                name: AppRouteName.sponsor,
                 builder: (context, state) {
                   return SponsorPage();
                 },
@@ -95,6 +104,8 @@ class AppRoute {
             routes: [
               GoRoute(
                 path: "/profile",
+                name: AppRouteName.profile,
+                redirect: AppRouteRedirect.needAuth,
                 builder: (context, state) {
                   return ProfilePage();
                 },

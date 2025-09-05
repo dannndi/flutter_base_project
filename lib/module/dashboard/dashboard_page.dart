@@ -61,26 +61,25 @@ class _DashboardPageState extends State<DashboardPage> {
     return Scaffold(
       body: widget.child,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton:
-          MediaQuery.of(context).viewInsets.bottom > 0
-              ? const SizedBox.shrink()
-              : GestureDetector(
-                onTap: () async {},
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: AppColor.primaryColor,
-                        shape: BoxShape.circle,
-                      ),
-                      child: Icon(Icons.add, size: 32, color: AppColor.white),
+      floatingActionButton: MediaQuery.of(context).viewInsets.bottom > 0
+          ? const SizedBox.shrink()
+          : GestureDetector(
+              onTap: () async {},
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: AppColor.primaryColor,
+                      shape: BoxShape.circle,
                     ),
-                  ],
-                ),
+                    child: Icon(Icons.add, size: 32, color: AppColor.white),
+                  ),
+                ],
               ),
+            ),
       bottomNavigationBar: DesignBottomNavbar(
         currentIndex: widget.child.currentIndex,
         onTap: (index) async {

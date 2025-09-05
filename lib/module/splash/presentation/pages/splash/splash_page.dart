@@ -26,9 +26,9 @@ class _SplashUIState extends State<SplashUI> {
   }
 
   void initialize() async {
-    await Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 2));
     if (mounted) {
-      context.goNamed(AppRouteName.home);
+      context.goNamed(AppRouteName.login);
     }
   }
 

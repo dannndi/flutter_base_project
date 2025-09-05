@@ -1,8 +1,11 @@
+import 'package:base_project/core/component/button/design_button.dart';
 import 'package:base_project/core/l10n/cubit/language_cubit.dart';
 import 'package:base_project/core/extensions/build_context_ext.dart';
+import 'package:base_project/core/route/app_route_name.dart';
 import 'package:base_project/core/theme/cubit/theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -28,6 +31,7 @@ class _HomeUIState extends State<HomeUI> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
+          spacing: 16,
           children: [
             GestureDetector(
               onTap: () {
@@ -44,7 +48,6 @@ class _HomeUIState extends State<HomeUI> {
                 textAlign: TextAlign.center,
               ),
             ),
-            const SizedBox(height: 16),
             GestureDetector(
               onTap: () {
                 final current = context.read<ThemeCubit>().state.current;
@@ -63,6 +66,13 @@ class _HomeUIState extends State<HomeUI> {
                   );
                 },
               ),
+            ),
+            DesignButton(
+              type: DesignButtonType.text,
+              text: "Login",
+              onPressed: () {
+                context.goNamed(AppRouteName.login);
+              },
             ),
           ],
         ),
