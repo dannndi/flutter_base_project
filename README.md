@@ -1,6 +1,8 @@
 # Base Project
 Flutter Base Project
 
+---
+
 ## Getting Started
 Clone using copy_template
 ```sh
@@ -24,7 +26,7 @@ Rename / Change (Manually)
 1. all remaining "com.example.base_project" to "your.bundle.id"
 2. all "base_project" to your "package_name"
 
-
+---
 
 ## Script
 Getting started
@@ -42,4 +44,24 @@ Create module
 Generate translation
 ```sh
 ./script/gen_translate.sh
+```
+---
+## Feature
+
+### 1. App Event Broadcaster
+`AppEventBroadcaster` allows you to **broadcast events across your app**, from any page, widget, or function, and listen to them anywhere.
+
+#### Example usage:
+##### Push Event
+```dart
+AppEventBroadcaster.I.push(MyEvent());
+```
+##### Listen Event
+```dart
+final sub = AppEventBroadcaster.I.listen((event) {
+  print('Received event: $event');
+});
+
+// Later, cancel when done
+sub.cancel();
 ```
