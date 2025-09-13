@@ -1,8 +1,8 @@
-import 'package:base_project/core/component/button/design_button.dart';
 import 'package:base_project/core/component/image/design_image.dart';
 import 'package:base_project/core/component/textfield/design_textfield.dart';
 import 'package:base_project/core/theme/app_color.dart';
 import 'package:base_project/core/theme/app_textstyle.dart';
+import 'package:base_project/module/profile/presentation/pages/profile/widget/sample_buttons_widget.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -33,7 +33,7 @@ class _ProfileUIState extends State<ProfileUI> {
           children: [
             textThemeSample(context),
             Divider(height: 64),
-            designButtonSample(context),
+            SampleButtonsWidget(),
             Divider(height: 64),
             DesignTextfield(
               labelText: "Outlined Input Border",

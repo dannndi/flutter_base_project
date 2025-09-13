@@ -23,6 +23,40 @@ void main() {
     expect(find.text('Click Me'), findsOneWidget);
   });
 
+  testWidgets('renders secondary button', (WidgetTester tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: DesignButton(
+            text: 'Secondary',
+            type: DesignButtonType.secondary,
+            onPressed: () {},
+          ),
+        ),
+      ),
+    );
+
+    expect(find.byType(ElevatedButton), findsOneWidget);
+    expect(find.text('Secondary'), findsOneWidget);
+  });
+
+  testWidgets('renders ternary button', (WidgetTester tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: DesignButton(
+            text: 'Ternary',
+            type: DesignButtonType.ternary,
+            onPressed: () {},
+          ),
+        ),
+      ),
+    );
+
+    expect(find.byType(ElevatedButton), findsOneWidget);
+    expect(find.text('Ternary'), findsOneWidget);
+  });
+
   testWidgets('renders outlined button', (WidgetTester tester) async {
     await tester.pumpWidget(
       MaterialApp(
@@ -123,6 +157,36 @@ void main() {
       {},
     ); // resolve MaterialState
     expect(resolvedSize?.width, 72);
+  });
+
+  testWidgets('applies correct size for large button', (
+    WidgetTester tester,
+  ) async {
+    final testWidth = 300.0;
+
+    await tester.pumpWidget(
+      MediaQuery(
+        data: MediaQueryData(size: Size(testWidth, 400)),
+        child: MaterialApp(
+          home: Scaffold(
+            body: Center(
+              child: DesignButton(
+                text: 'Large',
+                size: DesignButtonSize.large,
+                onPressed: () {},
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+
+    final button = tester.widget<ElevatedButton>(find.byType(ElevatedButton));
+    final style = button.style;
+    final resolvedSize = style?.minimumSize?.resolve(
+      {},
+    ); // resolve MaterialState
+    expect(resolvedSize?.width, 300);
   });
 
   testWidgets('should render custom child widget', (
