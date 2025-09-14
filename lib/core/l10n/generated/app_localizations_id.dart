@@ -10,4 +10,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get language => 'Indonesia';
+
+  @override
+  String get hello => 'Hallo';
 }
