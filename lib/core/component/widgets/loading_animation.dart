@@ -8,14 +8,12 @@ class LoadingAnimation extends StatefulWidget {
     super.key,
     this.color,
     this.size = 42,
-    this.itemBuilder,
     this.duration = const Duration(milliseconds: 1200),
     this.controller,
   });
 
   final Color? color;
   final double size;
-  final IndexedWidgetBuilder? itemBuilder;
   final Duration duration;
   final AnimationController? controller;
 
@@ -82,15 +80,12 @@ class _AnimationCircle extends State<LoadingAnimation>
     );
   }
 
-  Widget _itemBuilder(int index) =>
-      widget.itemBuilder != null
-          ? widget.itemBuilder!(context, index)
-          : DecoratedBox(
-            decoration: BoxDecoration(
-              color: widget.color ?? AppColor.primaryColor,
-              shape: BoxShape.circle,
-            ),
-          );
+  Widget _itemBuilder(int index) => DecoratedBox(
+    decoration: BoxDecoration(
+      color: widget.color ?? AppColor.primaryColor,
+      shape: BoxShape.circle,
+    ),
+  );
 }
 
 class DelayTween extends Tween<double> {
