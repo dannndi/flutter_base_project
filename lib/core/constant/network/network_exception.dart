@@ -1,3 +1,4 @@
+// coverage:ignore-line
 enum NetworkExceptionType {
   /// unauthorize
   unauthorize,
