@@ -1,4 +1,4 @@
-import 'package:base_project/core/component/pages/loading_page_wrapper.dart';
+import 'package:base_project/core/component/pages/loading_page_wrapper/loading_page_wrapper.dart';
 import 'package:base_project/core/component/widgets/loading_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';

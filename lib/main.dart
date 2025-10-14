@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
               title: AppUtils.appName,
               theme: AppTheme.light,
               darkTheme: AppTheme.dark,
-              themeMode: context.watch<ThemeCubit>().state.current,
+              themeMode: ThemeMode.light,
               builder: (context, child) {
                 final MediaQueryData data = MediaQuery.of(context);
                 return MediaQuery(

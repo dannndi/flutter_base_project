@@ -1,17 +1,21 @@
 class AppRouteName {
   AppRouteName._();
 
-  // get started
   static String splash = "splash";
-  static String onBoarding = "on-boarding";
 
-  // auth
-  static String login = "login";
-  static String register = "register";
+  static String account = "account";
+  static String inviteFriends = "invite-friends";
+  static String helpCenter = "help-center";
+  static String business = "business";
 
-  // dashboard
-  static String home = "home";
-  static String event = "event";
-  static String sponsor = "sponsor";
-  static String profile = "profile";
+  static String explore = "explore";
+  static String latestCourse = "latest-course";
+  static String mostPopularCourse = "most-popular-course";
+  static String cart = "cart";
+  static String myCourse = "my-course";
+
+  static String exploreDetail = "explore-detail";
+  static String latestCourseDetail = "latest-course-detail";
+
+  static String accountEdit = "account-edit";
 }

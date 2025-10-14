@@ -154,7 +154,7 @@ class DesignImage extends StatelessWidget {
         fit: fit ?? BoxFit.contain,
         clipBehavior: clipBehavior,
         alignment: alignment,
-        errorBuilder: (_, __, ___) {
+        errorBuilder: (_, _, _) {
           return failedWidget ?? _failedWidget;
         },
         placeholderBuilder: (_) {

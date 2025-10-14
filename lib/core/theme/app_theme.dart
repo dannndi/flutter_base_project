@@ -1,3 +1,4 @@
+import 'package:base_project/core/component/transition/no_page_transition/no_page_transition_builder.dart';
 import 'package:base_project/core/theme/app_color.dart';
 import 'package:base_project/core/theme/app_textstyle.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,24 @@ class AppTheme {
       bodyLarge: AppTextStyle.bodyLarge,
       bodyMedium: AppTextStyle.bodyMedium,
       bodySmall: AppTextStyle.bodySmall,
+    ),
+    appBarTheme: AppBarTheme(
+      toolbarHeight: 86,
+      backgroundColor: AppColor.backgroundWhite,
+      surfaceTintColor: AppColor.backgroundWhite,
+    ),
+    drawerTheme: DrawerThemeData(
+      backgroundColor: AppColor.backgroundWhite,
+      shape: RoundedRectangleBorder(),
+    ),
+    pageTransitionsTheme: const PageTransitionsTheme(
+      builders: <TargetPlatform, PageTransitionsBuilder>{
+        TargetPlatform.android: NoPageTransitionBuilder(),
+        TargetPlatform.iOS: NoPageTransitionBuilder(),
+        TargetPlatform.macOS: NoPageTransitionBuilder(),
+        TargetPlatform.windows: NoPageTransitionBuilder(),
+        TargetPlatform.linux: NoPageTransitionBuilder(),
+      },
     ),
   );
 
@@ -55,6 +74,24 @@ class AppTheme {
       bodyLarge: AppTextStyle.bodyLarge.copyWith(color: AppColor.white),
       bodyMedium: AppTextStyle.bodyMedium.copyWith(color: AppColor.white),
       bodySmall: AppTextStyle.bodySmall.copyWith(color: AppColor.white),
+    ),
+    appBarTheme: AppBarTheme(
+      toolbarHeight: 86,
+      backgroundColor: AppColor.backgroundBlack,
+      surfaceTintColor: AppColor.backgroundBlack,
+    ),
+    drawerTheme: DrawerThemeData(
+      backgroundColor: AppColor.backgroundBlack,
+      shape: RoundedRectangleBorder(),
+    ),
+    pageTransitionsTheme: const PageTransitionsTheme(
+      builders: <TargetPlatform, PageTransitionsBuilder>{
+        TargetPlatform.android: NoPageTransitionBuilder(),
+        TargetPlatform.iOS: NoPageTransitionBuilder(),
+        TargetPlatform.macOS: NoPageTransitionBuilder(),
+        TargetPlatform.windows: NoPageTransitionBuilder(),
+        TargetPlatform.linux: NoPageTransitionBuilder(),
+      },
     ),
   );
 }
