@@ -40,7 +40,7 @@ class CourseDetailUI extends StatelessWidget {
     final padding = context.responsiveValue(
       desktop: const EdgeInsets.symmetric(horizontal: 42),
       tablet: const EdgeInsets.symmetric(horizontal: 32),
-      mobile: const EdgeInsets.symmetric(horizontal: 24),
+      mobile: const EdgeInsets.symmetric(horizontal: 16),
     );
 
     return Scaffold(
@@ -124,7 +124,11 @@ class CourseDetailUI extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: Container(
-        padding: const EdgeInsets.all(32),
+        padding: context.responsiveValue(
+          desktop: const EdgeInsets.all(32),
+          tablet: const EdgeInsets.all(24),
+          mobile: const EdgeInsets.all(16),
+        ),
         decoration: BoxDecoration(
           color: Theme.of(context).scaffoldBackgroundColor,
           boxShadow: [
@@ -148,6 +152,7 @@ class CourseDetailUI extends StatelessWidget {
                   Text(
                     "Enroll to start your 7-Days trial for free",
                     style: Theme.of(context).textTheme.titleSmall,
+                    textAlign: TextAlign.end,
                   ),
                   Text(
                     "90 Days left",

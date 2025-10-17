@@ -1,10 +1,11 @@
 import 'package:base_project/core/component/transition/no_page_transition/no_page_transition_builder.dart';
+import 'package:base_project/core/extensions/build_context_ext.dart';
 import 'package:base_project/core/theme/app_color.dart';
 import 'package:base_project/core/theme/app_textstyle.dart';
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static ThemeData light = ThemeData(
+  static ThemeData light(BuildContext context) => ThemeData(
     colorScheme: ColorScheme.fromSeed(seedColor: AppColor.primaryColor),
     brightness: Brightness.light,
     primaryColor: AppColor.primaryColor,
@@ -28,7 +29,11 @@ class AppTheme {
       bodySmall: AppTextStyle.bodySmall,
     ),
     appBarTheme: AppBarTheme(
-      toolbarHeight: 86,
+      toolbarHeight: context.responsiveValue(
+        desktop: 82,
+        tablet: 72,
+        mobile: 64,
+      ),
       backgroundColor: AppColor.backgroundWhite,
       surfaceTintColor: AppColor.backgroundWhite,
     ),
@@ -47,7 +52,7 @@ class AppTheme {
     ),
   );
 
-  static ThemeData dark = ThemeData(
+  static ThemeData dark(BuildContext context) => ThemeData(
     colorScheme: ColorScheme.fromSeed(
       seedColor: AppColor.primaryColor,
       brightness: Brightness.dark,
@@ -76,7 +81,11 @@ class AppTheme {
       bodySmall: AppTextStyle.bodySmall.copyWith(color: AppColor.white),
     ),
     appBarTheme: AppBarTheme(
-      toolbarHeight: 86,
+      toolbarHeight: context.responsiveValue(
+        desktop: 82,
+        tablet: 72,
+        mobile: 64,
+      ),
       backgroundColor: AppColor.backgroundBlack,
       surfaceTintColor: AppColor.backgroundBlack,
     ),

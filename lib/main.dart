@@ -45,8 +45,8 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               routerConfig: AppRoute.router,
               title: AppUtils.appName,
-              theme: AppTheme.light,
-              darkTheme: AppTheme.dark,
+              theme: AppTheme.light(context),
+              darkTheme: AppTheme.dark(context),
               themeMode: ThemeMode.light,
               builder: (context, child) {
                 final MediaQueryData data = MediaQuery.of(context);

@@ -73,6 +73,7 @@ class HomeShellPage extends StatelessWidget {
         type: DesignTextfieldType.none,
         hintText: "What do you want to learn",
         prefix: Icon(Icons.search),
+        maxLines: 1,
       ),
     );
   }
