@@ -154,9 +154,9 @@ class DesignButton extends StatelessWidget {
       case DesignButtonSize.mini:
         return const EdgeInsets.symmetric(horizontal: 12, vertical: 12);
       case DesignButtonSize.medium:
-        return const EdgeInsets.symmetric(horizontal: 16, vertical: 16);
+        return const EdgeInsets.symmetric(horizontal: 14, vertical: 14);
       case DesignButtonSize.large:
-        return const EdgeInsets.symmetric(horizontal: 24, vertical: 20);
+        return const EdgeInsets.symmetric(horizontal: 16, vertical: 16);
     }
   }
 
