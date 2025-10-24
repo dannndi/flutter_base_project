@@ -1,14 +1,16 @@
+import 'package:base_project/core/extensions/build_context_ext.dart';
 import 'package:base_project/core/theme/app_color.dart';
 import 'package:base_project/module/dashboard/widget/design_bottom_navbar.dart';
+import 'package:base_project/module/dashboard/widget/design_side_navbar.dart';
+import 'package:base_project/module/dashboard/widget/floating_action_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:responsive_sheet/responsive_sheet.dart';
 
 class BottomNavBarItemData {
-  final BottomNavigationBarItem icon;
+  final BottomNavigationBarItem item;
   final String destinationRoute;
 
-  BottomNavBarItemData({required this.icon, required this.destinationRoute});
+  BottomNavBarItemData({required this.item, required this.destinationRoute});
 }
 
 class DashboardPage extends StatefulWidget {
@@ -25,7 +27,7 @@ class _DashboardPageState extends State<DashboardPage> {
   final bottomNavBarItems = [
     BottomNavBarItemData(
       destinationRoute: "/home",
-      icon: BottomNavigationBarItem(
+      item: BottomNavigationBarItem(
         icon: Icon(Icons.home),
         activeIcon: Icon(Icons.home, color: AppColor.primaryColor),
         label: "Home",
@@ -33,7 +35,7 @@ class _DashboardPageState extends State<DashboardPage> {
     ),
     BottomNavBarItemData(
       destinationRoute: "/event",
-      icon: BottomNavigationBarItem(
+      item: BottomNavigationBarItem(
         icon: Icon(Icons.calendar_month),
         activeIcon: Icon(Icons.calendar_month, color: AppColor.primaryColor),
         label: "Event",
@@ -41,7 +43,7 @@ class _DashboardPageState extends State<DashboardPage> {
     ),
     BottomNavBarItemData(
       destinationRoute: "/sponsor",
-      icon: BottomNavigationBarItem(
+      item: BottomNavigationBarItem(
         icon: Icon(Icons.campaign),
         activeIcon: Icon(Icons.campaign, color: AppColor.primaryColor),
         label: "Sponsor",
@@ -49,7 +51,7 @@ class _DashboardPageState extends State<DashboardPage> {
     ),
     BottomNavBarItemData(
       destinationRoute: "/profile",
-      icon: BottomNavigationBarItem(
+      item: BottomNavigationBarItem(
         icon: Icon(Icons.person),
         activeIcon: Icon(Icons.person, color: AppColor.primaryColor),
         label: "Profile",
@@ -60,52 +62,45 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: widget.child,
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: MediaQuery.of(context).viewInsets.bottom > 0
-          ? const SizedBox.shrink()
-          : GestureDetector(
-              onTap: () {
-                showResponsiveBottomSheet(
-                  context,
-                  builder: (context) {
-                    return Container(
-                      width: 400,
-                      height: 600,
-                      alignment: Alignment.center,
-                      child: Text(
-                        "Responsive Bottomsheet",
-                        style: Theme.of(context).textTheme.headlineMedium,
-                      ),
-                    );
-                  },
-                );
-              },
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: AppColor.primaryColor,
-                      shape: BoxShape.circle,
-                    ),
-                    child: Icon(Icons.add, size: 32, color: AppColor.white),
-                  ),
-                ],
-              ),
+      body: Row(
+        children: [
+          if (!context.isMobileSize)
+            DesignSideNavbar(
+              currentIndex: widget.child.currentIndex,
+              onTap: onItemClicked,
+              bottomNavBarItems: bottomNavBarItems.map((e) => e.item).toList(),
             ),
-      bottomNavigationBar: DesignBottomNavbar(
-        currentIndex: widget.child.currentIndex,
-        onTap: (index) async {
-          widget.child.goBranch(
-            index,
-            initialLocation: index == widget.child.currentIndex,
-          );
-        },
-        bottomNavBarItems: bottomNavBarItems.map((e) => e.icon).toList(),
+          Flexible(child: widget.child),
+        ],
       ),
+      floatingActionButton: _buildFloatingActionButton(context),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: _buildBottomNavigation(context),
+    );
+  }
+
+  Widget? _buildFloatingActionButton(BuildContext context) {
+    if (!context.isMobileSize) return null;
+
+    return MediaQuery.of(context).viewInsets.bottom > 0
+        ? const SizedBox.shrink()
+        : FloatingActionWidget();
+  }
+
+  Widget? _buildBottomNavigation(BuildContext context) {
+    if (!context.isMobileSize) return null;
+
+    return DesignBottomNavbar(
+      currentIndex: widget.child.currentIndex,
+      onTap: onItemClicked,
+      bottomNavBarItems: bottomNavBarItems.map((e) => e.item).toList(),
+    );
+  }
+
+  void onItemClicked(int index) {
+    widget.child.goBranch(
+      index,
+      initialLocation: index == widget.child.currentIndex,
     );
   }
 }

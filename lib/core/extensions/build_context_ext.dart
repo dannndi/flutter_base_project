@@ -7,6 +7,10 @@ extension BuildContextExt on BuildContext {
   static const _maxMobile = 600;
   static const _maxTablet = 1024;
 
+  Size get screenSize => MediaQuery.sizeOf(this);
+  double get screenWidth => MediaQuery.sizeOf(this).width;
+  double get screenHeight => MediaQuery.sizeOf(this).height;
+
   bool get isMobileSize {
     return MediaQuery.of(this).size.width < _maxMobile;
   }

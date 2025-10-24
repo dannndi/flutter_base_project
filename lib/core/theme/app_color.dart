@@ -14,6 +14,7 @@ class AppColor {
   static const Color lightGray = Color.fromARGB(255, 215, 215, 215);
   static const Color lightRed = Color.fromARGB(255, 255, 202, 202);
   static const Color lightGreen = Color.fromARGB(255, 212, 255, 202);
+  static const Color border = Color.fromARGB(255, 174, 171, 171);
 
   static const MaterialColor primarySwatch = MaterialColor(0xFF1C3E66, {
     50: Color(0xFF8e9fb3),
