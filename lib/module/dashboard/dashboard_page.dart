@@ -2,6 +2,7 @@ import 'package:base_project/core/theme/app_color.dart';
 import 'package:base_project/module/dashboard/widget/design_bottom_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:responsive_sheet/responsive_sheet.dart';
 
 class BottomNavBarItemData {
   final BottomNavigationBarItem icon;
@@ -64,7 +65,22 @@ class _DashboardPageState extends State<DashboardPage> {
       floatingActionButton: MediaQuery.of(context).viewInsets.bottom > 0
           ? const SizedBox.shrink()
           : GestureDetector(
-              onTap: () async {},
+              onTap: () {
+                showResponsiveBottomSheet(
+                  context,
+                  builder: (context) {
+                    return Container(
+                      width: 400,
+                      height: 600,
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Responsive Bottomsheet",
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                    );
+                  },
+                );
+              },
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.end,
