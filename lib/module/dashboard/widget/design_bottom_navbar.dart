@@ -19,8 +19,8 @@ class DesignBottomNavbar extends StatelessWidget {
     final entries = bottomNavBarItems.asMap().entries;
 
     return Container(
-      padding: EdgeInsets.only(
-        bottom: MediaQuery.of(context).padding.bottom + 16,
+      padding: EdgeInsets.all(8).add(
+        EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),
       ),
       decoration: BoxDecoration(
         color: Theme.of(context).scaffoldBackgroundColor,
@@ -36,13 +36,13 @@ class DesignBottomNavbar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children:
             entries.map((entry) {
+                final isSelected = currentIndex == entry.key;
                 return Expanded(
                   flex: 7,
                   child: GestureDetector(
                     onTap: () => onTap(entry.key),
                     child: Container(
-                      padding: const EdgeInsets.only(top: 16),
-                      color: Colors.transparent,
+                      padding: const EdgeInsets.symmetric(vertical: 8),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -50,14 +50,14 @@ class DesignBottomNavbar extends StatelessWidget {
                           SizedBox(
                             height: 24,
                             width: 24,
-                            child: currentIndex == entry.key
+                            child: isSelected
                                 ? entry.value.activeIcon
                                 : entry.value.icon,
                           ),
                           const SizedBox(height: 6),
                           Text(
                             entry.value.label ?? "",
-                            style: currentIndex == entry.key
+                            style: isSelected
                                 ? theme.textTheme.titleSmall?.copyWith(
                                     color: AppColor.primaryColor,
                                   )

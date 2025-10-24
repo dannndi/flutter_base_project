@@ -20,6 +20,75 @@ class DesignSideNavbar extends StatelessWidget {
     final theme = Theme.of(context);
     final entries = bottomNavBarItems.asMap().entries;
 
+    final menus = Column(
+      crossAxisAlignment: context.isTabletSize
+          ? CrossAxisAlignment.center
+          : CrossAxisAlignment.start,
+      children: entries.map((entry) {
+        final isSelected = currentIndex == entry.key;
+
+        return InkWell(
+          onTap: () => onTap(entry.key),
+          child: Container(
+            width: context.responsiveValue(
+              desktop: 120,
+              tablet: 78,
+              mobile: null,
+            ),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 8,
+              vertical: 16,
+            ),
+            decoration: isSelected
+                ? BoxDecoration(
+                    color: AppColor.primarySwatch.shade50.withValues(
+                      alpha: 0.2,
+                    ),
+                    borderRadius: BorderRadius.circular(12),
+                  )
+                : null,
+            child: Flex(
+              direction: context.isTabletSize ? Axis.vertical : Axis.horizontal,
+              spacing: 8,
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: context.responsiveValue(
+                    desktop: 28,
+                    tablet: 26,
+                    mobile: 24,
+                  ),
+                  width: context.responsiveValue(
+                    desktop: 28,
+                    tablet: 26,
+                    mobile: 24,
+                  ),
+                  child: FittedBox(
+                    fit: BoxFit.contain,
+                    child: isSelected
+                        ? entry.value.activeIcon
+                        : entry.value.icon,
+                  ),
+                ),
+                Text(
+                  entry.value.label ?? "",
+                  style: isSelected
+                      ? theme.textTheme.titleSmall?.copyWith(
+                          color: AppColor.primaryColor,
+                        )
+                      : theme.textTheme.bodyMedium,
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
+                ),
+              ],
+            ),
+          ),
+        );
+      }).toList(),
+    );
+
     return Container(
       padding: EdgeInsets.all(24),
       decoration: BoxDecoration(
@@ -32,64 +101,9 @@ class DesignSideNavbar extends StatelessWidget {
       ),
       child: Column(
         spacing: 8,
-        crossAxisAlignment: context.responsiveValue(
-          desktop: CrossAxisAlignment.start,
-          tablet: CrossAxisAlignment.center,
-          mobile: CrossAxisAlignment.center,
-        ),
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          ...entries.map((entry) {
-            return InkWell(
-              onTap: () => onTap(entry.key),
-              child: Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 8,
-                  vertical: 16,
-                ),
-                color: Colors.transparent,
-                child: Row(
-                  spacing: context.responsiveValue(
-                    desktop: 12,
-                    tablet: 8,
-                    mobile: 4,
-                  ),
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: context.responsiveValue(
-                        desktop: 28,
-                        tablet: 26,
-                        mobile: 24,
-                      ),
-                      width: context.responsiveValue(
-                        desktop: 28,
-                        tablet: 26,
-                        mobile: 24,
-                      ),
-                      child: FittedBox(
-                        fit: BoxFit.contain,
-                        child: currentIndex == entry.key
-                            ? entry.value.activeIcon
-                            : entry.value.icon,
-                      ),
-                    ),
-                    if (context.isDesktopSize)
-                      Text(
-                        entry.value.label ?? "",
-                        style: currentIndex == entry.key
-                            ? theme.textTheme.titleMedium?.copyWith(
-                                color: AppColor.primaryColor,
-                              )
-                            : theme.textTheme.bodyMedium,
-                        textAlign: TextAlign.center,
-                        maxLines: 1,
-                      ),
-                  ],
-                ),
-              ),
-            );
-          }),
+          menus,
           const SizedBox(height: 48),
           FloatingActionWidget(),
         ],
