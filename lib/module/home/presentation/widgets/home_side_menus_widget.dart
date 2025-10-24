@@ -1,6 +1,7 @@
 import 'package:base_project/core/extensions/build_context_ext.dart';
 import 'package:base_project/core/route/app_route_name.dart';
 import 'package:base_project/core/theme/app_color.dart';
+import 'package:base_project/module/home/presentation/widgets/home_side_profile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -17,6 +18,7 @@ class HomeSideMenusWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        if (context.isMobileSize) DrawerProfileWidget(),
         const SizedBox(height: 16),
         Text(
           "Explore",
