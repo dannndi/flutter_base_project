@@ -15,7 +15,7 @@ class ThemeCubit extends Cubit<ThemeState> {
 
   void init() async {
     final currentSaved = await _storage.getString(LocalStorage.savedTheme);
-    emit(state.copyWith(current: currentSaved?.toTheme ?? ThemeMode.system));
+    emit(state.copyWith(current: currentSaved?.toTheme ?? ThemeMode.light));
   }
 
   void changeTheme(ThemeMode theme) {
