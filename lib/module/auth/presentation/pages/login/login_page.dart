@@ -33,19 +33,21 @@ class _LoginUIState extends State<LoginUI> {
       body: Builder(
         builder: (context) {
           if (context.isMobileSize) {
-            return SingleChildScrollView(
-              padding: AppPadding.responsiveAll(context),
-              child: Column(
-                spacing: 24,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: AppPadding.tabletHorizontal,
-                    child: LoginContent(),
-                  ),
-                  LoginForm(key: formKey),
-                ],
+            return SafeArea(
+              child: SingleChildScrollView(
+                padding: AppPadding.responsiveAll(context),
+                child: Column(
+                  spacing: 24,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: AppPadding.tabletHorizontal,
+                      child: LoginContent(),
+                    ),
+                    LoginForm(key: formKey),
+                  ],
+                ),
               ),
             );
           }
@@ -108,10 +110,14 @@ class LoginForm extends StatelessWidget {
         DesignTextfield(
           labelText: "Email",
           hintText: "Enter your email",
+          maxLines: 1,
+          textInputAction: TextInputAction.next,
         ),
         DesignTextfield(
           labelText: "Password",
           hintText: "Enter your password",
+          obscureText: true,
+          maxLines: 1,
         ),
         DesignButton(
           size: DesignButtonSize.large,

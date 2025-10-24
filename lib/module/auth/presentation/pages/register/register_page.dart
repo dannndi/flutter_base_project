@@ -25,7 +25,7 @@ class RegisterUI extends StatefulWidget {
 }
 
 class _RegisterUIState extends State<RegisterUI> {
-  final formKey = GlobalObjectKey("login_form_key");
+  final formKey = GlobalObjectKey("register_form_key");
 
   @override
   Widget build(BuildContext context) {
@@ -33,19 +33,21 @@ class _RegisterUIState extends State<RegisterUI> {
       body: Builder(
         builder: (context) {
           if (context.isMobileSize) {
-            return SingleChildScrollView(
-              padding: AppPadding.responsiveAll(context),
-              child: Column(
-                spacing: 24,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: AppPadding.tabletHorizontal,
-                    child: RegisterContent(),
-                  ),
-                  RegisterForm(key: formKey),
-                ],
+            return SafeArea(
+              child: SingleChildScrollView(
+                padding: AppPadding.responsiveAll(context),
+                child: Column(
+                  spacing: 24,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: AppPadding.tabletHorizontal,
+                      child: RegisterContent(),
+                    ),
+                    RegisterForm(key: formKey),
+                  ],
+                ),
               ),
             );
           }
@@ -108,10 +110,14 @@ class RegisterForm extends StatelessWidget {
         DesignTextfield(
           labelText: "Email",
           hintText: "Enter your email",
+          maxLines: 1,
+          textInputAction: TextInputAction.next,
         ),
         DesignTextfield(
           labelText: "Password",
           hintText: "Enter your password",
+          obscureText: true,
+          maxLines: 1,
         ),
         DesignButton(
           size: DesignButtonSize.large,
