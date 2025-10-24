@@ -119,7 +119,7 @@ class NetworkServiceError extends Equatable implements Exception {
     );
   }
 
-  factory NetworkServiceError.fromParsingException(error) {
+  factory NetworkServiceError.fromParsingException(dynamic error) {
     return NetworkServiceError(
       exceptionType: NetworkExceptionType.serialization,
       message: 'Failed to parse network response to model or vice versa',

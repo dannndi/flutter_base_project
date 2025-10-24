@@ -24,7 +24,7 @@ extension BuildContextExt on BuildContext {
     return isTabletSize || isDesktopSize;
   }
 
-  T responsiveValues<T>({
+  T responsiveValue<T>({
     required T desktop,
     required T tablet,
     required T mobile,
