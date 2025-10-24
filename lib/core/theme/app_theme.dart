@@ -26,6 +26,10 @@ class AppTheme {
       bodyMedium: AppTextStyle.bodyMedium,
       bodySmall: AppTextStyle.bodySmall,
     ),
+    appBarTheme: AppBarTheme(
+      backgroundColor: AppColor.backgroundWhite,
+      surfaceTintColor: AppColor.backgroundWhite,
+    ),
   );
 
   static ThemeData dark = ThemeData(
@@ -55,6 +59,10 @@ class AppTheme {
       bodyLarge: AppTextStyle.bodyLarge.copyWith(color: AppColor.white),
       bodyMedium: AppTextStyle.bodyMedium.copyWith(color: AppColor.white),
       bodySmall: AppTextStyle.bodySmall.copyWith(color: AppColor.white),
+    ),
+    appBarTheme: AppBarTheme(
+      backgroundColor: AppColor.backgroundBlack,
+      surfaceTintColor: AppColor.backgroundBlack,
     ),
   );
 }
