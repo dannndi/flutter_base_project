@@ -1,5 +1,7 @@
+import 'package:base_project/core/component/page_transition/no_transition_builder.dart';
 import 'package:base_project/core/theme/app_color.dart';
 import 'package:base_project/core/theme/app_textstyle.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class AppTheme {
@@ -29,6 +31,9 @@ class AppTheme {
     appBarTheme: AppBarTheme(
       backgroundColor: AppColor.backgroundWhite,
       surfaceTintColor: AppColor.backgroundWhite,
+    ),
+    pageTransitionsTheme: PageTransitionsTheme(
+      builders: kIsWeb ? _noTransitionBuilders : _defaultTransitionBuilders,
     ),
   );
 
@@ -64,5 +69,24 @@ class AppTheme {
       backgroundColor: AppColor.backgroundBlack,
       surfaceTintColor: AppColor.backgroundBlack,
     ),
+    pageTransitionsTheme: const PageTransitionsTheme(
+      builders: kIsWeb ? _noTransitionBuilders : _defaultTransitionBuilders,
+    ),
   );
+
+  static const _noTransitionBuilders = {
+    TargetPlatform.android: NoTransitionBuilder(),
+    TargetPlatform.iOS: NoTransitionBuilder(),
+    TargetPlatform.macOS: NoTransitionBuilder(),
+    TargetPlatform.windows: NoTransitionBuilder(),
+    TargetPlatform.linux: NoTransitionBuilder(),
+  };
+
+  static const _defaultTransitionBuilders = {
+    TargetPlatform.android: ZoomPageTransitionsBuilder(),
+    TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+    TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
+    TargetPlatform.windows: ZoomPageTransitionsBuilder(),
+    TargetPlatform.linux: ZoomPageTransitionsBuilder(),
+  };
 }
