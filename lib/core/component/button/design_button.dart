@@ -66,6 +66,7 @@ class DesignButton extends StatelessWidget {
             minimumSize: buttonSize,
             padding: padding,
             shape: RoundedRectangleBorder(borderRadius: borderRadius),
+            tapTargetSize: MaterialTapTargetSize.padded,
           ),
           child: content,
         );
@@ -77,6 +78,7 @@ class DesignButton extends StatelessWidget {
             minimumSize: buttonSize,
             padding: padding,
             shape: RoundedRectangleBorder(borderRadius: borderRadius),
+            tapTargetSize: MaterialTapTargetSize.padded,
           ),
           child: content,
         );
@@ -91,6 +93,7 @@ class DesignButton extends StatelessWidget {
             padding: padding,
             shape: RoundedRectangleBorder(borderRadius: borderRadius),
             elevation: enabled ? 0.5 : 0,
+            tapTargetSize: MaterialTapTargetSize.padded,
           ),
           child: content,
         );
@@ -141,11 +144,11 @@ class DesignButton extends StatelessWidget {
   Size _getSize(BuildContext context) {
     switch (size) {
       case DesignButtonSize.mini:
-        return const Size(72, 0);
+        return const Size(72, 52);
       case DesignButtonSize.medium:
-        return const Size(144, 0);
+        return const Size(144, 52);
       case DesignButtonSize.large:
-        return Size(MediaQuery.sizeOf(context).width, 0);
+        return Size(MediaQuery.sizeOf(context).width, 52);
     }
   }
 
