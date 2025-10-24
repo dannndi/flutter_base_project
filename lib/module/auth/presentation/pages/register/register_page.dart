@@ -25,8 +25,9 @@ class _RegisterUIState extends State<RegisterUI> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Padding(
-        padding: const EdgeInsets.all(32),
+        padding: const EdgeInsets.all(24),
         child: Column(
           spacing: 16,
           children: [
@@ -44,14 +45,6 @@ class _RegisterUIState extends State<RegisterUI> {
               onPressed: () {
                 AppRouteRedirect.alreadyLogin = true;
                 context.goNamed(AppRouteName.home);
-              },
-            ),
-            DesignButton(
-              type: DesignButtonType.outlined,
-              size: DesignButtonSize.large,
-              text: "Back",
-              onPressed: () {
-                context.pop();
               },
             ),
           ],
