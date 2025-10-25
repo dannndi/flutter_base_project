@@ -1,4 +1,5 @@
 import 'package:base_project/core/component/textfield/design_textfield.dart';
+import 'package:base_project/core/extensions/build_context_ext.dart';
 import 'package:base_project/core/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -64,9 +65,9 @@ class _DesignDropdownState<T> extends State<DesignDropdown<T>> {
         prefix: widget.prefix,
         suffix:
             widget.suffix ??
-            const Icon(
+            Icon(
               Icons.arrow_drop_down_rounded,
-              color: AppColor.primaryColor,
+              color: context.colorScheme.primary,
             ),
         textAlignVertical: widget.textAlignVertical,
       ),
@@ -294,9 +295,9 @@ class _DropdownItem<T> extends StatelessWidget {
               child: Text(text, style: Theme.of(context).textTheme.bodyMedium),
             ),
             if (isSelected)
-              const Icon(
+               Icon(
                 Icons.check_circle_rounded,
-                color: AppColor.primaryColor,
+                color: context.colorScheme.primary,
                 size: 20,
               ),
           ],

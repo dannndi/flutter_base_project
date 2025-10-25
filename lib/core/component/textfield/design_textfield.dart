@@ -1,3 +1,4 @@
+import 'package:base_project/core/extensions/build_context_ext.dart';
 import 'package:base_project/core/theme/app_color.dart';
 import 'package:flutter/material.dart';
 
@@ -93,7 +94,7 @@ class _DesignTextfieldState extends State<DesignTextfield> {
                     text: " *",
                     style: theme.textTheme.bodySmall?.copyWith(
                       fontWeight: FontWeight.bold,
-                      color: AppColor.primaryColor,
+                      color: context.colorScheme.primary,
                     ),
                   ),
               ],
@@ -121,18 +122,18 @@ class _DesignTextfieldState extends State<DesignTextfield> {
               enabledBorder: _border,
               disabledBorder: _border,
               focusedBorder: _border.copyWith(
-                borderSide: const BorderSide(
+                borderSide: BorderSide(
                   width: 1,
-                  color: AppColor.primaryColor,
+                  color: context.colorScheme.primary,
                 ),
               ),
               errorBorder: _border.copyWith(
                 borderSide: const BorderSide(width: 1, color: AppColor.danger),
               ),
               focusedErrorBorder: _border.copyWith(
-                borderSide: const BorderSide(
+                borderSide: BorderSide(
                   width: 1,
-                  color: AppColor.primaryColor,
+                  color: context.colorScheme.primary,
                 ),
               ),
               hintText: widget.hintText,
@@ -152,7 +153,7 @@ class _DesignTextfieldState extends State<DesignTextfield> {
                       },
                       icon: Icon(
                         obscure ? Icons.visibility : Icons.visibility_off,
-                        color: AppColor.primaryColor,
+                        color: context.colorScheme.primary,
                       ),
                     )
                   : widget.suffix,
