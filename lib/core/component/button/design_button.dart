@@ -1,3 +1,4 @@
+import 'package:base_project/core/extensions/build_context_ext.dart';
 import 'package:base_project/core/theme/app_color.dart';
 import 'package:flutter/material.dart';
 
@@ -41,7 +42,7 @@ class DesignButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = customColor ?? _getButtonColors();
+    final colors = customColor ?? _getButtonColors(context);
     final color = enabled ? colors.color : colors.disableColor;
     final childColor = enabled ? colors.childColor : colors.disableChildColor;
 
@@ -61,8 +62,6 @@ class DesignButton extends StatelessWidget {
           onPressed: enabled ? onPressed : null,
           style: OutlinedButton.styleFrom(
             side: BorderSide(width: 1.5, color: color),
-            backgroundColor: AppColor.white,
-            disabledBackgroundColor: AppColor.white,
             minimumSize: buttonSize,
             padding: padding,
             shape: RoundedRectangleBorder(borderRadius: borderRadius),
@@ -100,33 +99,33 @@ class DesignButton extends StatelessWidget {
     }
   }
 
-  DesignButtonColors _getButtonColors() {
+  DesignButtonColors _getButtonColors(BuildContext context) {
     switch (type) {
       case DesignButtonType.primary:
         return DesignButtonColors(
-          color: AppColor.primaryColor,
-          childColor: AppColor.white,
+          color: context.colorScheme.primary,
+          childColor: context.colorScheme.onPrimary,
           disableColor: AppColor.neutral[700]!,
           disableChildColor: AppColor.neutral[200]!,
         );
       case DesignButtonType.secondary:
         return DesignButtonColors(
-          color: AppColor.secondaryColor,
-          childColor: AppColor.white,
+          color:  context.colorScheme.secondary,
+          childColor: context.colorScheme.onSecondary,
           disableColor: AppColor.neutral[700]!,
           disableChildColor: AppColor.neutral[200]!,
         );
       case DesignButtonType.ternary:
         return DesignButtonColors(
-          color: AppColor.white,
-          childColor: AppColor.primaryColor,
+          color: context.colorScheme.tertiary,
+          childColor:  context.colorScheme.onTertiary,
           disableColor: AppColor.neutral[700]!,
           disableChildColor: AppColor.neutral[200]!,
         );
       case DesignButtonType.outlined:
         return DesignButtonColors(
-          color: AppColor.primaryColor,
-          childColor: AppColor.primaryColor,
+          color:  context.colorScheme.primary,
+          childColor:  context.colorScheme.primary,
           disableColor: AppColor.neutral[200]!,
           disableChildColor: AppColor.neutral[200]!,
         );
@@ -134,7 +133,7 @@ class DesignButton extends StatelessWidget {
       case DesignButtonType.text:
         return DesignButtonColors(
           color: AppColor.white,
-          childColor: AppColor.primaryColor,
+          childColor:  context.colorScheme.primary,
           disableColor: AppColor.white,
           disableChildColor: AppColor.neutral[200]!,
         );

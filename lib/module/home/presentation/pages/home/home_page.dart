@@ -61,7 +61,7 @@ class _HomeUIState extends State<HomeUI> {
               child: BlocBuilder<ThemeCubit, ThemeState>(
                 builder: (context, state) {
                   return Text(
-                    "Tap to change language\ncurrent = ${state.current}",
+                    "Tap to change theme\ncurrent = ${state.current}",
                     textAlign: TextAlign.center,
                   );
                 },

@@ -4,8 +4,10 @@ class AppColor {
   AppColor._(); // coverage:ignore-line
 
   static const Color primaryColor = Color(0xFF1C3E66);
-  static const Color secondaryColor = Color.fromARGB(255, 215, 170, 34);
+  static const Color secondaryColor = Color(0xFFE6AB68);
+  static const Color ternary = Color(0xFF929FC1);
   static const Color white = Color(0xFFFFFFFF);
+  static const Color offWhite = Color(0xFFF2F0EF);
   static const Color black = Color(0xFF000000);
   static const Color blackGrey = Color.fromARGB(255, 39, 39, 39);
   static const Color backgroundBlack = Color.fromARGB(255, 37, 37, 37);
@@ -27,6 +29,19 @@ class AppColor {
     700: Color(0xFF163252),
     800: Color(0xFF142b47),
     900: Color(0xFF11253d),
+  });
+
+  static const MaterialColor secondarySwatch = MaterialColor(0xFFE6AB68, {
+    50: Color(0xFFf3d5b4),
+    100: Color(0xFFf0cda4),
+    200: Color(0xFFeec495),
+    300: Color(0xFFebbc86),
+    400: Color(0xFFe9b377),
+    500: Color(0xFFe6ab68),
+    600: Color(0xFFcf9a5e),
+    700: Color(0xFFb88953),
+    800: Color(0xFFa17849),
+    900: Color(0xFF8a673e),
   });
 
   static const MaterialColor neutral = MaterialColor(0xFF0A0A0A, {

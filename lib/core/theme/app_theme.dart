@@ -6,10 +6,23 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   static ThemeData light = ThemeData(
-    colorScheme: ColorScheme.fromSeed(seedColor: AppColor.primaryColor),
+    colorScheme: ColorScheme.fromSeed(
+      brightness: Brightness.light,
+      seedColor: AppColor.primaryColor,
+      primary: AppColor.primaryColor,
+      onPrimary: AppColor.offWhite,
+      secondary: AppColor.secondaryColor,
+      onSecondary: AppColor.blackGrey,
+      tertiary: AppColor.ternary,
+      onTertiary: AppColor.blackGrey,
+      surface: AppColor.backgroundWhite,
+      onSurface: AppColor.blackGrey,
+      inverseSurface: AppColor.backgroundBlack,
+      onInverseSurface: AppColor.offWhite,
+    ),
     brightness: Brightness.light,
-    primaryColor: AppColor.primaryColor,
     scaffoldBackgroundColor: AppColor.backgroundWhite,
+    primaryColor: AppColor.primaryColor,
     primarySwatch: AppColor.primarySwatch,
     textTheme: const TextTheme(
       displayLarge: AppTextStyle.displayLarge,
@@ -39,13 +52,23 @@ class AppTheme {
 
   static ThemeData dark = ThemeData(
     colorScheme: ColorScheme.fromSeed(
-      seedColor: AppColor.primaryColor,
       brightness: Brightness.dark,
+      seedColor: AppColor.secondaryColor,
+      primary: AppColor.secondaryColor,
+      onPrimary: AppColor.blackGrey,
+      secondary: AppColor.primaryColor,
+      onSecondary: AppColor.offWhite,
+      tertiary: AppColor.ternary,
+      onTertiary: AppColor.blackGrey,
+      surface: AppColor.backgroundBlack,
+      onSurface: AppColor.offWhite,
+      inverseSurface: AppColor.backgroundWhite,
+      onInverseSurface: AppColor.blackGrey,
     ),
     brightness: Brightness.dark,
     scaffoldBackgroundColor: AppColor.backgroundBlack,
-    primaryColor: AppColor.primaryColor,
-    primarySwatch: AppColor.primarySwatch,
+    primaryColor: AppColor.secondaryColor,
+    primarySwatch: AppColor.secondarySwatch,
     textTheme: TextTheme(
       displayLarge: AppTextStyle.displayLarge.copyWith(color: AppColor.white),
       displayMedium: AppTextStyle.displayMedium.copyWith(color: AppColor.white),
