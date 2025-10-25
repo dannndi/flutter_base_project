@@ -1,3 +1,4 @@
+import 'package:base_project/core/extensions/build_context_ext.dart';
 import 'package:base_project/core/theme/app_color.dart';
 import 'package:flutter/material.dart';
 
@@ -15,8 +16,30 @@ class DesignBottomNavbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final entries = bottomNavBarItems.asMap().entries;
+
+    final navItems = entries.map(
+      (entry) {
+        final isSelected = currentIndex == entry.key;
+        return _buildBottomNavItem(
+          context,
+          entry.key,
+          entry.value,
+          isSelected,
+        );
+      },
+    ).toList();
+
+    if (navItems.length % 2 == 0) {
+      navItems.insert(
+        (navItems.length / 2).floor(),
+        Spacer(flex: 5),
+      );
+    } else {
+      navItems.add(
+        Spacer(flex: 7),
+      );
+    }
 
     return Container(
       padding: EdgeInsets.all(8).add(
@@ -34,45 +57,48 @@ class DesignBottomNavbar extends StatelessWidget {
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
-        children:
-            entries.map((entry) {
-                final isSelected = currentIndex == entry.key;
-                return Expanded(
-                  flex: 7,
-                  child: GestureDetector(
-                    onTap: () => onTap(entry.key),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          SizedBox(
-                            height: 24,
-                            width: 24,
-                            child: isSelected
-                                ? entry.value.activeIcon
-                                : entry.value.icon,
-                          ),
-                          const SizedBox(height: 6),
-                          Text(
-                            entry.value.label ?? "",
-                            style: isSelected
-                                ? theme.textTheme.titleSmall?.copyWith(
-                                    color: AppColor.primaryColor,
-                                  )
-                                : theme.textTheme.bodySmall,
-                            textAlign: TextAlign.center,
-                            maxLines: 1,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                );
-              }).toList()
-              // space for floating button
-              ..insert(2, const Expanded(flex: 5, child: SizedBox())),
+        children: navItems,
+      ),
+    );
+  }
+
+  Widget _buildBottomNavItem(
+    BuildContext context,
+    int index,
+    BottomNavigationBarItem item,
+    bool isSelected,
+  ) {
+    final theme = Theme.of(context);
+
+    return Expanded(
+      flex: 7,
+      child: GestureDetector(
+        onTap: () => onTap(index),
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              SizedBox(
+                height: 24,
+                width: 24,
+                child: isSelected ? item.activeIcon : item.icon,
+              ),
+              const SizedBox(height: 6),
+              Text(
+                item.label ?? "",
+                style: isSelected
+                    ? theme.textTheme.titleSmall?.copyWith(
+                        color: context.colorScheme.primary,
+                      )
+                    : theme.textTheme.bodySmall,
+                textAlign: TextAlign.center,
+                maxLines: 1,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

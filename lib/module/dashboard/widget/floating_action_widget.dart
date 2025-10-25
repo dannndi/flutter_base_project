@@ -1,5 +1,4 @@
 import 'package:base_project/core/extensions/build_context_ext.dart';
-import 'package:base_project/core/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sheet/responsive_sheet.dart';
 
@@ -32,10 +31,14 @@ class FloatingActionWidget extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: AppColor.primaryColor,
+              color: context.colorScheme.primary,
               shape: BoxShape.circle,
             ),
-            child: Icon(Icons.add, size: 32, color: AppColor.white),
+            child: Icon(
+              Icons.add,
+              size: 32,
+              color: context.colorScheme.onPrimary,
+            ),
           ),
         ],
       ),

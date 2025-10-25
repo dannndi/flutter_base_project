@@ -1,5 +1,4 @@
 import 'package:base_project/core/extensions/build_context_ext.dart';
-import 'package:base_project/core/theme/app_color.dart';
 import 'package:base_project/module/dashboard/widget/design_bottom_navbar.dart';
 import 'package:base_project/module/dashboard/widget/design_side_navbar.dart';
 import 'package:base_project/module/dashboard/widget/floating_action_widget.dart';
@@ -24,12 +23,15 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
-  final bottomNavBarItems = [
+  List<BottomNavBarItemData> get bottomNavBarItems => [
     BottomNavBarItemData(
       destinationRoute: "/home",
       item: BottomNavigationBarItem(
         icon: Icon(Icons.home),
-        activeIcon: Icon(Icons.home, color: AppColor.primaryColor),
+        activeIcon: Icon(
+          Icons.home,
+          color: context.colorScheme.primary,
+        ),
         label: "Home",
       ),
     ),
@@ -37,7 +39,10 @@ class _DashboardPageState extends State<DashboardPage> {
       destinationRoute: "/event",
       item: BottomNavigationBarItem(
         icon: Icon(Icons.calendar_month),
-        activeIcon: Icon(Icons.calendar_month, color: AppColor.primaryColor),
+        activeIcon: Icon(
+          Icons.calendar_month,
+          color: context.colorScheme.primary,
+        ),
         label: "Event",
       ),
     ),
@@ -45,7 +50,10 @@ class _DashboardPageState extends State<DashboardPage> {
       destinationRoute: "/sponsor",
       item: BottomNavigationBarItem(
         icon: Icon(Icons.campaign),
-        activeIcon: Icon(Icons.campaign, color: AppColor.primaryColor),
+        activeIcon: Icon(
+          Icons.campaign,
+          color: context.colorScheme.primary,
+        ),
         label: "Sponsor",
       ),
     ),
@@ -53,7 +61,10 @@ class _DashboardPageState extends State<DashboardPage> {
       destinationRoute: "/profile",
       item: BottomNavigationBarItem(
         icon: Icon(Icons.person),
-        activeIcon: Icon(Icons.person, color: AppColor.primaryColor),
+        activeIcon: Icon(
+          Icons.person,
+          color: context.colorScheme.primary,
+        ),
         label: "Profile",
       ),
     ),
@@ -74,7 +85,9 @@ class _DashboardPageState extends State<DashboardPage> {
         ],
       ),
       floatingActionButton: _buildFloatingActionButton(context),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonLocation: bottomNavBarItems.length % 2 == 0
+          ? FloatingActionButtonLocation.centerDocked
+          : FloatingActionButtonLocation.endContained,
       bottomNavigationBar: _buildBottomNavigation(context),
     );
   }

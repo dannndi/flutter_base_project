@@ -41,7 +41,7 @@ class DesignSideNavbar extends StatelessWidget {
             ),
             decoration: isSelected
                 ? BoxDecoration(
-                    color: AppColor.primarySwatch.shade50.withValues(
+                    color: context.colorScheme.primary.withValues(
                       alpha: 0.2,
                     ),
                     borderRadius: BorderRadius.circular(12),
@@ -76,7 +76,7 @@ class DesignSideNavbar extends StatelessWidget {
                   entry.value.label ?? "",
                   style: isSelected
                       ? theme.textTheme.titleSmall?.copyWith(
-                          color: AppColor.primaryColor,
+                          color: context.colorScheme.primary,
                         )
                       : theme.textTheme.bodyMedium,
                   textAlign: TextAlign.center,
