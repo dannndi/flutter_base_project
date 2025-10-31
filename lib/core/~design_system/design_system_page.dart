@@ -1,3 +1,4 @@
+import 'package:base_project/core/~design_system/pages/button_example_page.dart';
 import 'package:base_project/core/~design_system/pages/typography_example_page.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +20,17 @@ class DesignSystemPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => TypographyExamplePage(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            title: Text("Button Example"),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ButtonExamplePage(),
                 ),
               );
             },
