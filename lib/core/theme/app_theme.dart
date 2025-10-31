@@ -1,5 +1,6 @@
 import 'package:base_project/core/component/page_transition/no_transition_builder.dart';
 import 'package:base_project/core/theme/app_color.dart';
+import 'package:base_project/core/theme/app_padding.dart';
 import 'package:base_project/core/theme/app_textstyle.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -48,6 +49,11 @@ class AppTheme {
     pageTransitionsTheme: PageTransitionsTheme(
       builders: kIsWeb ? _noTransitionBuilders : _defaultTransitionBuilders,
     ),
+    listTileTheme: ListTileThemeData(
+      minTileHeight: 0,
+      contentPadding: AppPadding.listTile,
+      minVerticalPadding: 0,
+    )
   );
 
   static ThemeData dark = ThemeData(
@@ -95,6 +101,11 @@ class AppTheme {
     pageTransitionsTheme: const PageTransitionsTheme(
       builders: kIsWeb ? _noTransitionBuilders : _defaultTransitionBuilders,
     ),
+    listTileTheme: ListTileThemeData(
+      minTileHeight: 0,
+      contentPadding: AppPadding.listTile,
+      minVerticalPadding: 0,
+    )
   );
 
   static const _noTransitionBuilders = {
