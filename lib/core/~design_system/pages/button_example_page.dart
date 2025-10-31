@@ -1,6 +1,7 @@
 import 'package:base_project/core/component/button/design_button.dart';
 import 'package:base_project/core/component/widgets/design_theme_switch.dart';
 import 'package:base_project/core/theme/app_color.dart';
+import 'package:base_project/core/theme/app_padding.dart';
 import 'package:flutter/material.dart';
 
 class ButtonExamplePage extends StatelessWidget {
@@ -17,7 +18,7 @@ class ButtonExamplePage extends StatelessWidget {
         ],
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(24),
+        padding: AppPadding.largeHorizontal,
         child: Column(
           spacing: 8,
           mainAxisAlignment: MainAxisAlignment.start,

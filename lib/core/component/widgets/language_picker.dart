@@ -1,3 +1,4 @@
+import 'package:base_project/core/component/list_tile/design_list_tile.dart';
 import 'package:base_project/core/component/sheet/responsive_sheet.dart';
 import 'package:base_project/core/extensions/build_context_ext.dart';
 import 'package:base_project/core/extensions/locale_ext.dart';
@@ -92,7 +93,7 @@ class _LanguagePickerWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           ...AppLocalizations.supportedLocales.map((locale) {
-            return ListTile(
+            return DesignListTile(
               onTap: () {
                 context.pop(locale);
               },
@@ -103,10 +104,7 @@ class _LanguagePickerWidget extends StatelessWidget {
                 locale.emoji,
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
-              title: Text(
-                locale.text,
-              ),
-              titleTextStyle: Theme.of(context).textTheme.titleSmall,
+              title: Text(locale.text),
               trailing: Row(
                 spacing: 16,
                 mainAxisSize: MainAxisSize.min,
