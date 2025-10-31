@@ -161,7 +161,7 @@ class _DesignTextfieldState extends State<DesignTextfield> {
             ),
             keyboardType: widget.keyboardType,
             textInputAction: widget.textInputAction,
-            maxLines: widget.maxLines,
+            maxLines: obscure ? 1 : widget.maxLines,
           ),
         ),
       ],

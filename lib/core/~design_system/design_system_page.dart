@@ -7,6 +7,7 @@ import 'package:base_project/core/~design_system/pages/button_example_page.dart'
 import 'package:base_project/core/~design_system/pages/checkbox_example_page.dart';
 import 'package:base_project/core/~design_system/pages/colors_example_page.dart';
 import 'package:base_project/core/~design_system/pages/switch_example_page.dart';
+import 'package:base_project/core/~design_system/pages/textfield_example_page.dart';
 import 'package:base_project/core/~design_system/pages/typography_example_page.dart';
 import 'package:flutter/material.dart';
 
@@ -83,6 +84,17 @@ class DesignSystemPage extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => CheckboxExamplePage(),
+                  ),
+                );
+              },
+            ),
+            DesignListTile(
+              title: Text("Text Field"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TextfieldExamplePage(),
                   ),
                 );
               },
