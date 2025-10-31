@@ -50,13 +50,13 @@ class _DesignExpandableTileState extends State<DesignExpandableTile> {
           return child ?? const SizedBox();
         },
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 16),
+            SizedBox(height: 8),
             widget.subtitle,
           ],
         ),
       ),
-
       showDefaultTrailing: false,
       onTap: () {
         isExpandedNotifier.value = !isExpandedNotifier.value;

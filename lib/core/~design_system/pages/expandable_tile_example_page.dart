@@ -19,7 +19,7 @@ class ExpandableTileExamplePage extends StatelessWidget {
       body: SingleChildScrollView(
         padding: AppPadding.largeHorizontal,
         child: Column(
-          spacing: 16,
+          spacing: 8,
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

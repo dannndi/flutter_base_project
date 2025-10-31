@@ -1,6 +1,7 @@
 import 'package:base_project/core/component/page_transition/no_transition_builder.dart';
 import 'package:base_project/core/theme/app_color.dart';
 import 'package:base_project/core/theme/app_padding.dart';
+import 'package:base_project/core/theme/app_radius.dart';
 import 'package:base_project/core/theme/app_textstyle.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -54,11 +55,18 @@ class AppTheme {
     listTileTheme: ListTileThemeData(
       minTileHeight: 0,
       contentPadding: AppPadding.listTile,
+      titleTextStyle: AppTextStyle.titleSmall,
       minVerticalPadding: 0,
     ),
     bottomSheetTheme: BottomSheetThemeData(
       backgroundColor: AppColor.backgroundWhite,
-    )
+    ),
+    dialogTheme: DialogThemeData(
+      shape: RoundedRectangleBorder(
+        borderRadius: AppRadius.large,
+      ),
+      backgroundColor: AppColor.backgroundWhite,
+    ),
   );
 
   static ThemeData dark = ThemeData(
@@ -111,11 +119,18 @@ class AppTheme {
     listTileTheme: ListTileThemeData(
       minTileHeight: 0,
       contentPadding: AppPadding.listTile,
+      titleTextStyle: AppTextStyle.titleSmall.copyWith(color: AppColor.white),
       minVerticalPadding: 0,
     ),
     bottomSheetTheme: BottomSheetThemeData(
       backgroundColor: AppColor.backgroundBlack,
-    )
+    ),
+    dialogTheme: DialogThemeData(
+      shape: RoundedRectangleBorder(
+        borderRadius: AppRadius.large,
+      ),
+      backgroundColor: AppColor.backgroundBlack,
+    ),
   );
 
   static const _noTransitionBuilders = {

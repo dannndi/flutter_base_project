@@ -159,7 +159,7 @@ class DesignButton extends StatelessWidget {
   Size _getSize(BuildContext context) {
     switch (size) {
       case DesignButtonSize.mini:
-        return const Size(72, 36);
+        return const Size(72, 42);
       case DesignButtonSize.medium:
         return const Size(144, 52);
       case DesignButtonSize.large:
