@@ -68,7 +68,7 @@ dependencies:
   # logger
   logger: ^2.6.0
   #responsive sheet
-  responsive_sheet: ^1.0.3
+  responsive_sheet: ^1.1.1
 
 dev_dependencies:
   flutter_test:

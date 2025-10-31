@@ -721,10 +721,10 @@ packages:
     dependency: "direct main"
     description:
       name: responsive_sheet
-      sha256: "9df99043d280a527266ff34a9b30c2dedf500e0b9265e99db3170131bc9f791a"
+      sha256: "9c4fd3258f23317ee5dc724e3e6232651d839af260503f31d3e512e32835ed69"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.3"
+    version: "1.1.1"
   shelf:
     dependency: transitive
     description:
