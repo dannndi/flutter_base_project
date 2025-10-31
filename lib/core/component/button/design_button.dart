@@ -27,6 +27,8 @@ class DesignButton extends StatelessWidget {
     this.onPressed,
     this.text,
     this.child,
+    this.prefixIcon,
+    this.suffixIcon,
     this.size = DesignButtonSize.medium,
     this.type = DesignButtonType.primary,
     this.customColor,
@@ -35,6 +37,8 @@ class DesignButton extends StatelessWidget {
   final bool enabled;
   final VoidCallback? onPressed;
   final String? text;
+  final Icon? prefixIcon;
+  final Icon? suffixIcon;
   final Widget Function(Color color, TextStyle? style)? child;
   final DesignButtonSize size;
   final DesignButtonType type;
@@ -50,9 +54,18 @@ class DesignButton extends StatelessWidget {
     final padding = _getPadding();
     final textStyle = _getTextStyle(context, childColor);
 
-    final content =
-        child?.call(childColor, textStyle) ??
-        Text(text ?? '', style: textStyle);
+    Widget? content = child?.call(childColor, textStyle);
+    
+    content ??= Row(
+      spacing: 4,
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        if (prefixIcon != null) prefixIcon!,
+        Text(text ?? '', style: textStyle),
+        if (suffixIcon != null) suffixIcon!,
+      ],
+    );
 
     final BorderRadius borderRadius = BorderRadius.circular(12);
 
@@ -110,7 +123,7 @@ class DesignButton extends StatelessWidget {
         );
       case DesignButtonType.secondary:
         return DesignButtonColors(
-          color:  context.colorScheme.secondary,
+          color: context.colorScheme.secondary,
           childColor: context.colorScheme.onSecondary,
           disableColor: AppColor.neutral[700]!,
           disableChildColor: AppColor.neutral[200]!,
@@ -118,14 +131,14 @@ class DesignButton extends StatelessWidget {
       case DesignButtonType.ternary:
         return DesignButtonColors(
           color: context.colorScheme.tertiary,
-          childColor:  context.colorScheme.onTertiary,
+          childColor: context.colorScheme.onTertiary,
           disableColor: AppColor.neutral[700]!,
           disableChildColor: AppColor.neutral[200]!,
         );
       case DesignButtonType.outlined:
         return DesignButtonColors(
-          color:  context.colorScheme.primary,
-          childColor:  context.colorScheme.primary,
+          color: context.colorScheme.primary,
+          childColor: context.colorScheme.primary,
           disableColor: AppColor.neutral[200]!,
           disableChildColor: AppColor.neutral[200]!,
         );
@@ -133,7 +146,7 @@ class DesignButton extends StatelessWidget {
       case DesignButtonType.text:
         return DesignButtonColors(
           color: AppColor.white,
-          childColor:  context.colorScheme.primary,
+          childColor: context.colorScheme.primary,
           disableColor: AppColor.white,
           disableChildColor: AppColor.neutral[200]!,
         );
@@ -143,7 +156,7 @@ class DesignButton extends StatelessWidget {
   Size _getSize(BuildContext context) {
     switch (size) {
       case DesignButtonSize.mini:
-        return const Size(72, 52);
+        return const Size(72, 36);
       case DesignButtonSize.medium:
         return const Size(144, 52);
       case DesignButtonSize.large:
@@ -154,7 +167,7 @@ class DesignButton extends StatelessWidget {
   EdgeInsetsGeometry _getPadding() {
     switch (size) {
       case DesignButtonSize.mini:
-        return const EdgeInsets.symmetric(horizontal: 12, vertical: 12);
+        return const EdgeInsets.symmetric(horizontal: 10, vertical: 10);
       case DesignButtonSize.medium:
         return const EdgeInsets.symmetric(horizontal: 14, vertical: 14);
       case DesignButtonSize.large:
