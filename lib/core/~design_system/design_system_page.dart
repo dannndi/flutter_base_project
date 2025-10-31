@@ -6,6 +6,7 @@ import 'package:base_project/core/theme/app_padding.dart';
 import 'package:base_project/core/~design_system/pages/button_example_page.dart';
 import 'package:base_project/core/~design_system/pages/checkbox_example_page.dart';
 import 'package:base_project/core/~design_system/pages/colors_example_page.dart';
+import 'package:base_project/core/~design_system/pages/dropdown_example_page.dart';
 import 'package:base_project/core/~design_system/pages/switch_example_page.dart';
 import 'package:base_project/core/~design_system/pages/textfield_example_page.dart';
 import 'package:base_project/core/~design_system/pages/typography_example_page.dart';
@@ -89,12 +90,23 @@ class DesignSystemPage extends StatelessWidget {
               },
             ),
             DesignListTile(
-              title: Text("Text Field"),
+              title: Text("Textfield"),
               onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => TextfieldExamplePage(),
+                  ),
+                );
+              },
+            ),
+            DesignListTile(
+              title: Text("Dropdown"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DropdownExamplePage(),
                   ),
                 );
               },

@@ -62,11 +62,11 @@ class _DesignTextfieldState extends State<DesignTextfield> {
 
   InputBorder get _border => switch (widget.type) {
     DesignTextfieldType.outlined => OutlineInputBorder(
-      borderSide: BorderSide(width: 1, color: AppColor.neutral[500]!),
+      borderSide: BorderSide(width: 1, color: AppColor.neutral),
       borderRadius: AppRadius.medium,
     ),
     DesignTextfieldType.underline => UnderlineInputBorder(
-      borderSide: BorderSide(width: 1, color: AppColor.neutral[500]!),
+      borderSide: BorderSide(width: 1, color: AppColor.neutral),
     ),
     DesignTextfieldType.none => InputBorder.none,
   };

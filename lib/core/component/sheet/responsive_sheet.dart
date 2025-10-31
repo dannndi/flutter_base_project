@@ -10,12 +10,12 @@ class ResponsiveSheet extends StatelessWidget {
   const ResponsiveSheet({
     super.key,
     required this.type,
-    required this.title,
+    this.title,
     required this.child,
   });
 
   final ResponsiveSheetType type;
-  final String title;
+  final String? title;
   final Widget child;
 
   @override
@@ -42,7 +42,8 @@ class ResponsiveSheet extends StatelessWidget {
             DialogIndicator(title: title),
           if (type == ResponsiveSheetType.sheet)
             BottomSheetIndicator(title: title),
-          child,
+          Flexible(child: child),
+          SizedBox(height: MediaQuery.viewInsetsOf(context).bottom)
         ],
       ),
     );
@@ -52,10 +53,10 @@ class ResponsiveSheet extends StatelessWidget {
 class DialogIndicator extends StatelessWidget {
   const DialogIndicator({
     super.key,
-    required this.title,
+    this.title,
   });
 
-  final String title;
+  final String? title;
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +72,7 @@ class DialogIndicator extends StatelessWidget {
         ),
         Expanded(
           child: Text(
-            title,
+            title ?? "",
             style: Theme.of(context).textTheme.titleMedium,
             maxLines: 1,
           ),
@@ -84,10 +85,10 @@ class DialogIndicator extends StatelessWidget {
 class BottomSheetIndicator extends StatelessWidget {
   const BottomSheetIndicator({
     super.key,
-    required this.title,
+    this.title,
   });
 
-  final String title;
+  final String? title;
 
   @override
   Widget build(BuildContext context) {
@@ -106,11 +107,13 @@ class BottomSheetIndicator extends StatelessWidget {
               borderRadius: AppRadius.xLarge,
             ),
           ),
-          Text(
-            title,
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-          Divider(color: AppColor.neutral),
+          if (title != null) ...[
+            Text(
+              title ?? "",
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            Divider(color: AppColor.neutral),
+          ],
         ],
       ),
     );
