@@ -1,11 +1,10 @@
 import 'package:base_project/core/component/button/design_button.dart';
+import 'package:base_project/core/component/switch/design_theme_switch.dart';
 import 'package:base_project/core/l10n/cubit/language_cubit.dart';
 import 'package:base_project/core/extensions/build_context_ext.dart';
-import 'package:base_project/core/route/app_route_name.dart';
-import 'package:base_project/core/theme/cubit/theme_cubit.dart';
+import 'package:base_project/core/~design_system/design_system_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -48,30 +47,22 @@ class _HomeUIState extends State<HomeUI> {
                 textAlign: TextAlign.center,
               ),
             ),
-            GestureDetector(
-              onTap: () {
-                final current = context.read<ThemeCubit>().state.current;
-
-                if (current == ThemeMode.system || current == ThemeMode.light) {
-                  context.read<ThemeCubit>().changeTheme(ThemeMode.dark);
-                } else {
-                  context.read<ThemeCubit>().changeTheme(ThemeMode.light);
-                }
-              },
-              child: BlocBuilder<ThemeCubit, ThemeState>(
-                builder: (context, state) {
-                  return Text(
-                    "Tap to change theme\ncurrent = ${state.current}",
-                    textAlign: TextAlign.center,
-                  );
-                },
-              ),
+            Row(
+              spacing: 16,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text("Theme Switch"),
+                DesignThemeSwitch(),
+              ],
             ),
             DesignButton(
-              type: DesignButtonType.text,
-              text: "Login",
+              type: DesignButtonType.outlined,
+              text: "See all Component Available",
               onPressed: () {
-                context.goNamed(AppRouteName.login);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DesignSystemPage()),
+                );
               },
             ),
           ],

@@ -87,29 +87,3 @@ class AppTextStyle {
     fontSize: 12,
   );
 }
-
-Widget textThemeSample(BuildContext context) {
-  final theme = Theme.of(context);
-
-  return Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Text("displayLarge", style: theme.textTheme.displayLarge),
-      Text("displayMedium", style: theme.textTheme.displayMedium),
-      Text("displaySmall", style: theme.textTheme.displaySmall),
-      Text("headlineLarge", style: theme.textTheme.headlineLarge),
-      Text("headlineMedium", style: theme.textTheme.headlineMedium),
-      Text("headlineSmall", style: theme.textTheme.headlineSmall),
-      Text("titleLarge", style: theme.textTheme.titleLarge),
-      Text("titleMedium", style: theme.textTheme.titleMedium),
-      Text("titleSmall", style: theme.textTheme.titleSmall),
-      Text("labelLarge", style: theme.textTheme.labelLarge),
-      Text("labelMedium", style: theme.textTheme.labelMedium),
-      Text("labelSmall", style: theme.textTheme.labelSmall),
-      Text("bodyLarge", style: theme.textTheme.bodyLarge),
-      Text("bodyMedium", style: theme.textTheme.bodyMedium),
-      Text("bodySmall", style: theme.textTheme.bodySmall),
-    ],
-  );
-}
