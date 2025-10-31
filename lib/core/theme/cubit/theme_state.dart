@@ -6,4 +6,6 @@ abstract class ThemeState with _$ThemeState {
 
   factory ThemeState({@Default(ThemeMode.system) ThemeMode current}) =
       _ThemeState;
+
+  bool get isDark => current == ThemeMode.dark;
 }

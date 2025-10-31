@@ -44,7 +44,7 @@ class AppColor {
     900: Color(0xFF8a673e),
   });
 
-  static const MaterialColor neutral = MaterialColor(0xFF0A0A0A, {
+  static const MaterialColor neutral = MaterialColor(0xFFC2C2C2, {
     50: Color(0xFF0A0A0A),
     100: Color(0xFF0A0A0A),
     200: Color(0xFF616161),
