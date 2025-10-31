@@ -11,7 +11,7 @@ class FloatingActionWidget extends StatelessWidget {
       onTap: () {
         showResponsiveBottomSheet(
           context,
-          builder: (context) {
+          builder: (context, _) {
             return Container(
               width: context.screenWidth * 0.7,
               height: 600,

@@ -12,5 +12,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get language => 'English';
 
   @override
-  String get hello => 'Hello';
+  String get change_language => 'Change Language';
+
+  @override
+  String get select_language => 'Select Language';
+
+  @override
+  String get dark_mode => 'Dark Mode';
 }

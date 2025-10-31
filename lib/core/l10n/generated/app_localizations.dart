@@ -104,11 +104,23 @@ abstract class AppLocalizations {
   /// **'English'**
   String get language;
 
-  /// No description provided for @hello.
+  /// No description provided for @change_language.
   ///
   /// In en, this message translates to:
-  /// **'Hello'**
-  String get hello;
+  /// **'Change Language'**
+  String get change_language;
+
+  /// No description provided for @select_language.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Language'**
+  String get select_language;
+
+  /// No description provided for @dark_mode.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark Mode'**
+  String get dark_mode;
 }
 
 class _AppLocalizationsDelegate

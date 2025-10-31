@@ -1,4 +1,6 @@
 {
     "language": "Indonesia",
-    "hello": "Hallo"
+    "change_language": "Pilih Bahasa",
+    "select_language": "Pilih Bahasa",
+    "dark_mode": "Mode Gelap"
 }

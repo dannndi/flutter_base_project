@@ -12,5 +12,11 @@ class AppLocalizationsId extends AppLocalizations {
   String get language => 'Indonesia';
 
   @override
-  String get hello => 'Hallo';
+  String get change_language => 'Pilih Bahasa';
+
+  @override
+  String get select_language => 'Pilih Bahasa';
+
+  @override
+  String get dark_mode => 'Mode Gelap';
 }

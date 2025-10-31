@@ -1,4 +1,6 @@
 {
     "language": "English",
-    "hello": "Hello"
+    "change_language": "Change Language",
+    "select_language": "Select Language",
+    "dark_mode": "Dark Mode"
 }

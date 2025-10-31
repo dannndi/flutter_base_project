@@ -1,4 +1,6 @@
 import 'package:base_project/core/component/widgets/design_theme_switch.dart';
+import 'package:base_project/core/component/widgets/language_picker.dart';
+import 'package:base_project/core/extensions/build_context_ext.dart';
 import 'package:base_project/core/~design_system/pages/button_example_page.dart';
 import 'package:base_project/core/~design_system/pages/typography_example_page.dart';
 import 'package:flutter/material.dart';
@@ -15,11 +17,15 @@ class DesignSystemPage extends StatelessWidget {
       body: ListView(
         children: [
           ListTile(
-            title: Text("Switch Theme"),
+            title: Text(context.intl.change_language),
+            trailing: LanguagePicker(),
+          ),
+          ListTile(
+            title: Text(context.intl.dark_mode),
             trailing: DesignThemeSwitch(),
           ),
           ListTile(
-            title: Text("Typography Example"),
+            title: Text("Typography"),
             onTap: () {
               Navigator.push(
                 context,
@@ -30,7 +36,7 @@ class DesignSystemPage extends StatelessWidget {
             },
           ),
           ListTile(
-            title: Text("Button Example"),
+            title: Text("Button"),
             onTap: () {
               Navigator.push(
                 context,
