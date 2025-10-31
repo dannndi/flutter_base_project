@@ -2,6 +2,7 @@ import 'package:base_project/core/component/widgets/design_theme_switch.dart';
 import 'package:base_project/core/component/widgets/language_picker.dart';
 import 'package:base_project/core/extensions/build_context_ext.dart';
 import 'package:base_project/core/~design_system/pages/button_example_page.dart';
+import 'package:base_project/core/~design_system/pages/checkbox_example_page.dart';
 import 'package:base_project/core/~design_system/pages/switch_example_page.dart';
 import 'package:base_project/core/~design_system/pages/typography_example_page.dart';
 import 'package:flutter/material.dart';
@@ -54,6 +55,17 @@ class DesignSystemPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => SwitchExamplePage(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            title: Text("Checkbox"),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CheckboxExamplePage(),
                 ),
               );
             },
