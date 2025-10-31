@@ -1,5 +1,4 @@
 import 'package:base_project/core/component/button/design_button.dart';
-import 'package:base_project/core/component/switch/design_theme_switch.dart';
 import 'package:base_project/core/l10n/cubit/language_cubit.dart';
 import 'package:base_project/core/extensions/build_context_ext.dart';
 import 'package:base_project/core/~design_system/design_system_page.dart';
@@ -46,14 +45,6 @@ class _HomeUIState extends State<HomeUI> {
                 "Tap to change language\ncurrent = ${context.intl.language}",
                 textAlign: TextAlign.center,
               ),
-            ),
-            Row(
-              spacing: 16,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text("Theme Switch"),
-                DesignThemeSwitch(),
-              ],
             ),
             DesignButton(
               type: DesignButtonType.outlined,

@@ -1,5 +1,5 @@
 import 'package:base_project/core/component/button/design_button.dart';
-import 'package:base_project/core/component/switch/design_theme_switch.dart';
+import 'package:base_project/core/component/widgets/design_theme_switch.dart';
 import 'package:base_project/core/theme/app_color.dart';
 import 'package:flutter/material.dart';
 

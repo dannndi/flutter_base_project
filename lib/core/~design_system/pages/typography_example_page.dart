@@ -1,4 +1,4 @@
-import 'package:base_project/core/component/switch/design_theme_switch.dart';
+import 'package:base_project/core/component/widgets/design_theme_switch.dart';
 import 'package:flutter/material.dart';
 
 class TypographyExamplePage extends StatelessWidget {
