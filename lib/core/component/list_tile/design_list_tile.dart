@@ -8,6 +8,7 @@ class DesignListTile extends StatelessWidget {
     required this.title,
     this.subtitle,
     this.leading,
+    this.showDefaultTrailing = true,
     this.trailing,
     this.onTap,
     this.shape,
@@ -16,6 +17,7 @@ class DesignListTile extends StatelessWidget {
   final Widget title;
   final Widget? subtitle;
   final Widget? leading;
+  final bool showDefaultTrailing;
   final Widget? trailing;
   final VoidCallback? onTap;
   final ShapeBorder? shape;
@@ -26,7 +28,11 @@ class DesignListTile extends StatelessWidget {
       title: title,
       subtitle: subtitle,
       leading: leading,
-      trailing: trailing ?? Icon(Icons.arrow_forward_ios_rounded, size: 18),
+      trailing:
+          trailing ??
+          (showDefaultTrailing
+              ? Icon(Icons.arrow_forward_ios_rounded, size: 18)
+              : null),
       shape:
           shape ??
           RoundedRectangleBorder(

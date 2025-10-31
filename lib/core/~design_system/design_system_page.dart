@@ -7,6 +7,7 @@ import 'package:base_project/core/~design_system/pages/button_example_page.dart'
 import 'package:base_project/core/~design_system/pages/checkbox_example_page.dart';
 import 'package:base_project/core/~design_system/pages/colors_example_page.dart';
 import 'package:base_project/core/~design_system/pages/dropdown_example_page.dart';
+import 'package:base_project/core/~design_system/pages/expandable_tile_example_page.dart';
 import 'package:base_project/core/~design_system/pages/switch_example_page.dart';
 import 'package:base_project/core/~design_system/pages/textfield_example_page.dart';
 import 'package:base_project/core/~design_system/pages/typography_example_page.dart';
@@ -107,6 +108,17 @@ class DesignSystemPage extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => DropdownExamplePage(),
+                  ),
+                );
+              },
+            ),
+            DesignListTile(
+              title: Text("Expandable Tile"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ExpandableTileExamplePage(),
                   ),
                 );
               },
