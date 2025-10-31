@@ -5,6 +5,7 @@ import 'package:base_project/core/extensions/build_context_ext.dart';
 import 'package:base_project/core/theme/app_padding.dart';
 import 'package:base_project/core/~design_system/pages/button_example_page.dart';
 import 'package:base_project/core/~design_system/pages/checkbox_example_page.dart';
+import 'package:base_project/core/~design_system/pages/colors_example_page.dart';
 import 'package:base_project/core/~design_system/pages/switch_example_page.dart';
 import 'package:base_project/core/~design_system/pages/typography_example_page.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,17 @@ class DesignSystemPage extends StatelessWidget {
             DesignListTile(
               title: Text(context.intl.dark_mode),
               trailing: DesignThemeSwitch(),
+            ),
+            DesignListTile(
+              title: Text("Colors"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ColorsExamplePage(),
+                  ),
+                );
+              },
             ),
             DesignListTile(
               title: Text("Typography"),

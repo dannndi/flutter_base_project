@@ -83,17 +83,17 @@ class AppColor {
     900: Color(0xFF00551D),
   });
 
-  static const MaterialColor danger = MaterialColor(0xFFDB1A5D, {
-    50: Color(0xFFFDD2D0),
-    100: Color(0xFFFDD2D0),
-    200: Color(0xFFFBA2A7),
-    300: Color(0xFFF47386),
-    400: Color(0xFFE94F75),
-    500: Color(0xFFDB1A5D),
-    600: Color(0xFFBC135E),
-    700: Color(0xFF9D0D5B),
-    800: Color(0xFF7F0854),
-    900: Color(0xFF69044F),
+  static const MaterialColor danger = MaterialColor(0xFFE01E46, {
+    50: Color(0xFFFDE1E3),
+    100: Color(0xFFFAB8BC),
+    200: Color(0xFFF58B94),
+    300: Color(0xFFEF5E6D),
+    400: Color(0xFFE63D55),
+    500: Color(0xFFE01E46),
+    600: Color(0xFFC9193F),
+    700: Color(0xFFB01438),
+    800: Color(0xFF971030),
+    900: Color(0xFF7A0A27),
   });
 
   static const MaterialColor warning = MaterialColor(0xFFDDAD00, {
