@@ -53,6 +53,9 @@ class AppTheme {
       minTileHeight: 0,
       contentPadding: AppPadding.listTile,
       minVerticalPadding: 0,
+    ),
+    bottomSheetTheme: BottomSheetThemeData(
+      backgroundColor: AppColor.backgroundWhite,
     )
   );
 
@@ -105,6 +108,9 @@ class AppTheme {
       minTileHeight: 0,
       contentPadding: AppPadding.listTile,
       minVerticalPadding: 0,
+    ),
+    bottomSheetTheme: BottomSheetThemeData(
+      backgroundColor: AppColor.backgroundBlack,
     )
   );
 
