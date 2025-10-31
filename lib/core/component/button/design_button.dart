@@ -1,5 +1,7 @@
 import 'package:base_project/core/extensions/build_context_ext.dart';
 import 'package:base_project/core/theme/app_color.dart';
+import 'package:base_project/core/theme/app_padding.dart';
+import 'package:base_project/core/theme/app_radius.dart';
 import 'package:flutter/material.dart';
 
 enum DesignButtonSize { mini, medium, large }
@@ -53,9 +55,11 @@ class DesignButton extends StatelessWidget {
     final buttonSize = _getSize(context);
     final padding = _getPadding();
     final textStyle = _getTextStyle(context, childColor);
+    final borderRadius = _getBorderRadius();
+
 
     Widget? content = child?.call(childColor, textStyle);
-    
+
     content ??= Row(
       spacing: 4,
       mainAxisSize: MainAxisSize.min,
@@ -67,14 +71,13 @@ class DesignButton extends StatelessWidget {
       ],
     );
 
-    final BorderRadius borderRadius = BorderRadius.circular(12);
 
     switch (type) {
       case DesignButtonType.outlined:
         return OutlinedButton(
           onPressed: enabled ? onPressed : null,
           style: OutlinedButton.styleFrom(
-            side: BorderSide(width: 1.5, color: color),
+            side: BorderSide(width: 1.2, color: color),
             minimumSize: buttonSize,
             padding: padding,
             shape: RoundedRectangleBorder(borderRadius: borderRadius),
@@ -164,14 +167,25 @@ class DesignButton extends StatelessWidget {
     }
   }
 
-  EdgeInsetsGeometry _getPadding() {
+  EdgeInsets _getPadding() {
     switch (size) {
       case DesignButtonSize.mini:
-        return const EdgeInsets.symmetric(horizontal: 10, vertical: 10);
+        return AppPadding.btnMini;
       case DesignButtonSize.medium:
-        return const EdgeInsets.symmetric(horizontal: 14, vertical: 14);
+        return AppPadding.btnMedium;
       case DesignButtonSize.large:
-        return const EdgeInsets.symmetric(horizontal: 16, vertical: 16);
+        return AppPadding.btnLarge;
+    }
+  }
+
+  BorderRadius _getBorderRadius() {
+    switch (size) {
+      case DesignButtonSize.mini:
+        return AppRadius.small;
+      case DesignButtonSize.medium:
+        return AppRadius.medium;
+      case DesignButtonSize.large:
+        return AppRadius.medium;
     }
   }
 

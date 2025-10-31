@@ -1,6 +1,7 @@
 import 'package:base_project/core/component/textfield/design_textfield.dart';
 import 'package:base_project/core/extensions/build_context_ext.dart';
 import 'package:base_project/core/theme/app_color.dart';
+import 'package:base_project/core/theme/app_radius.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -141,7 +142,7 @@ class _DropdownDialogState<T> extends State<DropdownDialog<T>> {
   Widget build(BuildContext context) {
     return Dialog(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: AppRadius.medium,
       ),
       child: Container(
         constraints: BoxConstraints(
@@ -236,7 +237,7 @@ class _DropdownList<T> extends StatelessWidget {
         thumbVisibility: true,
         thickness: 4,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: AppRadius.medium,
         ),
         minThumbLength: 10,
         child: SingleChildScrollView(
@@ -281,12 +282,12 @@ class _DropdownItem<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => context.pop(value),
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: AppRadius.medium,
       child: Container(
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
           color: isSelected ? AppColor.primarySwatch.shade50 : null,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: AppRadius.medium,
         ),
         child: Row(
           spacing: 8,

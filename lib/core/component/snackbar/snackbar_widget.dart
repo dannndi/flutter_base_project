@@ -1,4 +1,5 @@
 import 'package:base_project/core/theme/app_color.dart';
+import 'package:base_project/core/theme/app_radius.dart';
 import 'package:flutter/material.dart';
 
 enum SnackbarType {
@@ -25,7 +26,7 @@ void showSnackbar(
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       behavior: SnackBarBehavior.floating,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      shape: RoundedRectangleBorder(borderRadius: AppRadius.medium),
       margin: avoidBottomBar
           ? const EdgeInsets.only(bottom: 64, left: 16, right: 16)
           : null,

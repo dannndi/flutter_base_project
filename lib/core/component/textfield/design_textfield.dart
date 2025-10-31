@@ -1,5 +1,6 @@
 import 'package:base_project/core/extensions/build_context_ext.dart';
 import 'package:base_project/core/theme/app_color.dart';
+import 'package:base_project/core/theme/app_radius.dart';
 import 'package:flutter/material.dart';
 
 enum DesignTextfieldType { outlined, underline, none }
@@ -62,7 +63,7 @@ class _DesignTextfieldState extends State<DesignTextfield> {
   InputBorder get _border => switch (widget.type) {
     DesignTextfieldType.outlined => OutlineInputBorder(
       borderSide: BorderSide(width: 1, color: AppColor.neutral[500]!),
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: AppRadius.medium,
     ),
     DesignTextfieldType.underline => UnderlineInputBorder(
       borderSide: BorderSide(width: 1, color: AppColor.neutral[500]!),

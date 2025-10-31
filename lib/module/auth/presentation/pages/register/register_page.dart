@@ -35,14 +35,14 @@ class _RegisterUIState extends State<RegisterUI> {
           if (context.isMobileSize) {
             return SafeArea(
               child: SingleChildScrollView(
-                padding: AppPadding.responsiveAll(context),
+                padding: AppPadding.responsive(context),
                 child: Column(
                   spacing: 24,
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: AppPadding.tabletHorizontal,
+                      padding: EdgeInsets.symmetric(horizontal: 86),
                       child: RegisterContent(),
                     ),
                     RegisterForm(key: formKey),
@@ -53,9 +53,9 @@ class _RegisterUIState extends State<RegisterUI> {
           }
 
           return Padding(
-            padding: AppPadding.responsiveAll(context),
+            padding: AppPadding.responsive(context),
             child: Row(
-              spacing: AppPadding.responsiveValue(context),
+              spacing: 64,
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
