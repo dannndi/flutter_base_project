@@ -9,6 +9,7 @@ import 'package:base_project/core/~design_system/pages/colors_example_page.dart'
 import 'package:base_project/core/~design_system/pages/dialog_example_page.dart';
 import 'package:base_project/core/~design_system/pages/dropdown_example_page.dart';
 import 'package:base_project/core/~design_system/pages/expandable_tile_example_page.dart';
+import 'package:base_project/core/~design_system/pages/linear_progress_indicator_example_page.dart';
 import 'package:base_project/core/~design_system/pages/loading_animation_example_page.dart';
 import 'package:base_project/core/~design_system/pages/loading_page_example_page.dart';
 import 'package:base_project/core/~design_system/pages/snackbar_example_page.dart';
@@ -168,6 +169,17 @@ class DesignSystemPage extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => LoadingPageExamplePage(),
+                  ),
+                );
+              },
+            ),
+            DesignListTile(
+              title: Text("Progress Indicator"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LinearProgressIndicatorExamplePage(),
                   ),
                 );
               },
