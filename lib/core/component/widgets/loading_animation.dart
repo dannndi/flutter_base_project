@@ -8,14 +8,10 @@ class LoadingAnimation extends StatefulWidget {
     super.key,
     this.color,
     this.size = 42,
-    this.duration = const Duration(milliseconds: 1200),
-    this.controller,
   });
 
   final Color? color;
   final double size;
-  final Duration duration;
-  final AnimationController? controller;
 
   @override
   State<LoadingAnimation> createState() => _AnimationCircle();
@@ -31,17 +27,15 @@ class _AnimationCircle extends State<LoadingAnimation>
   void initState() {
     super.initState();
 
-    _controller =
-        (widget.controller ??
-              AnimationController(vsync: this, duration: widget.duration))
-          ..repeat();
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 1200),
+    )..repeat();
   }
 
   @override
   void dispose() {
-    if (widget.controller == null) {
-      _controller.dispose();
-    }
+    _controller.dispose();
     super.dispose();
   }
 
