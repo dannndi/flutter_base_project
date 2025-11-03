@@ -11,6 +11,7 @@ import 'package:base_project/core/~design_system/pages/dropdown_example_page.dar
 import 'package:base_project/core/~design_system/pages/expandable_tile_example_page.dart';
 import 'package:base_project/core/~design_system/pages/loading_animation_example_page.dart';
 import 'package:base_project/core/~design_system/pages/loading_page_example_page.dart';
+import 'package:base_project/core/~design_system/pages/snackbar_example_page.dart';
 import 'package:base_project/core/~design_system/pages/switch_example_page.dart';
 import 'package:base_project/core/~design_system/pages/textfield_example_page.dart';
 import 'package:base_project/core/~design_system/pages/typography_example_page.dart';
@@ -134,6 +135,17 @@ class DesignSystemPage extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => DialogExamplePage(),
+                  ),
+                );
+              },
+            ),
+            DesignListTile(
+              title: Text("Snackbar"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SnackbarExamplePage(),
                   ),
                 );
               },
