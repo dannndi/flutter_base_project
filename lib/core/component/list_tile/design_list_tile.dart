@@ -26,7 +26,15 @@ class DesignListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: title,
-      subtitle: subtitle,
+      subtitle: subtitle != null
+          ? Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 8),
+                subtitle!,
+              ],
+            )
+          : null,
       leading: leading,
       trailing:
           trailing ??

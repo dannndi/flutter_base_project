@@ -56,7 +56,7 @@ class AppTheme {
       minTileHeight: 0,
       contentPadding: AppPadding.listTile,
       titleTextStyle: AppTextStyle.titleSmall,
-      minVerticalPadding: 0,
+      minVerticalPadding: AppPadding.sm,
     ),
     bottomSheetTheme: BottomSheetThemeData(
       backgroundColor: AppColor.backgroundWhite,
@@ -120,7 +120,7 @@ class AppTheme {
       minTileHeight: 0,
       contentPadding: AppPadding.listTile,
       titleTextStyle: AppTextStyle.titleSmall.copyWith(color: AppColor.white),
-      minVerticalPadding: 0,
+      minVerticalPadding: AppPadding.sm,
     ),
     bottomSheetTheme: BottomSheetThemeData(
       backgroundColor: AppColor.backgroundBlack,
