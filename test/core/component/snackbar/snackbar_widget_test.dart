@@ -118,7 +118,7 @@ void main() {
                     showSnackbar(
                       context,
                       message: "Snackbar with prefix",
-                      prefixIcon: Icon(Icons.home),
+                      prefix: (color) => Icon(Icons.home),
                     );
                   },
                 ),
