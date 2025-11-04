@@ -11,8 +11,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_sheet/responsive_sheet.dart';
 
-class LanguagePicker extends StatelessWidget {
-  const LanguagePicker({super.key});
+class DesignLanguagePicker extends StatelessWidget {
+  const DesignLanguagePicker({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +65,7 @@ class LanguagePicker extends StatelessWidget {
         return ResponsiveSheetStyle(borderRadius: AppRadius.large);
       },
       builder: (context, type) {
-        return _LanguagePickerWidget(type: type, current: current);
+        return _DesignLanguagePickerWidget(type: type, current: current);
       },
     );
 
@@ -74,8 +74,8 @@ class LanguagePicker extends StatelessWidget {
   }
 }
 
-class _LanguagePickerWidget extends StatelessWidget {
-  const _LanguagePickerWidget({
+class _DesignLanguagePickerWidget extends StatelessWidget {
+  const _DesignLanguagePickerWidget({
     required this.type,
     required this.current,
   });
