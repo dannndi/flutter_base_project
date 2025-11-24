@@ -76,6 +76,7 @@ class DesignBottomNavbar extends StatelessWidget {
         onTap: () => onTap(index),
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 8),
+          color: Colors.transparent,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.end,
