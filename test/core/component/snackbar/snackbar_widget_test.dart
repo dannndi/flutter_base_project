@@ -1,6 +1,5 @@
 import 'package:base_project/core/component/button/design_button.dart';
 import 'package:base_project/core/component/snackbar/snackbar_widget.dart';
-import 'package:base_project/core/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -30,8 +29,11 @@ void main() {
 
     final snackBar = tester.widget<SnackBar>(find.byType(SnackBar));
 
+    final context = tester.element(find.byType(Scaffold));
+    final theme = Theme.of(context);
+
     expect(find.byType(SnackBar), findsOne);
-    expect(snackBar.backgroundColor, AppColor.neutral);
+    expect(snackBar.backgroundColor, theme.colorScheme.inverseSurface);
   });
 
   testWidgets("should able to close default snackbar by clicking ok", (
@@ -62,8 +64,11 @@ void main() {
 
     final snackBar = tester.widget<SnackBar>(find.byType(SnackBar));
 
+    final context = tester.element(find.byType(Scaffold));
+    final theme = Theme.of(context);
+
     expect(find.byType(SnackBar), findsOne);
-    expect(snackBar.backgroundColor, AppColor.neutral);
+    expect(snackBar.backgroundColor, theme.colorScheme.inverseSurface);
 
     await tester.tap(find.text("OK"));
     await tester.pump();
@@ -134,8 +139,11 @@ void main() {
 
     final snackBar = tester.widget<SnackBar>(find.byType(SnackBar));
 
+    final context = tester.element(find.byType(Scaffold));
+    final theme = Theme.of(context);
+
     expect(find.byType(SnackBar), findsOne);
-    expect(snackBar.backgroundColor, AppColor.neutral);
+    expect(snackBar.backgroundColor, theme.colorScheme.inverseSurface);
     expect(find.byType(Icon), findsOneWidget);
     expect(find.byIcon(Icons.home), findsOneWidget);
   });

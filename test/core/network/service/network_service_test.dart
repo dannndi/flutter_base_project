@@ -18,14 +18,14 @@ void main() {
 
   Map<String, dynamic> fakeJson = {"status": 200, "message": "ok"};
 
-  R converter<R>(Map<String, dynamic> json) {
+  R converter<R>(dynamic json) {
     return json['message'] as R;
   }
 
   group('post', () {
     test('should return converted response on success', () async {
       when(
-        () => dio.post<Map<String, dynamic>>(
+        () => dio.post(
           any(),
           data: any(named: 'data'),
           queryParameters: any(named: 'queryParameters'),
@@ -51,7 +51,7 @@ void main() {
       'should throw NetworkServiceError.fromDioException on DioException',
       () async {
         when(
-          () => dio.post<Map<String, dynamic>>(
+          () => dio.post(
             any(),
             data: any(named: 'data'),
             queryParameters: any(named: 'queryParameters'),
@@ -84,7 +84,7 @@ void main() {
       'should throw NetworkServiceError.fromParsingException on converter error',
       () async {
         when(
-          () => dio.post<Map<String, dynamic>>(
+          () => dio.post(
             any(),
             data: any(named: 'data'),
             queryParameters: any(named: 'queryParameters'),
@@ -121,7 +121,7 @@ void main() {
   group('get', () {
     test('should return converted response on success', () async {
       when(
-        () => dio.get<Map<String, dynamic>>(
+        () => dio.get(
           any(),
           data: any(named: 'data'),
           queryParameters: any(named: 'queryParameters'),
@@ -146,7 +146,7 @@ void main() {
       'should throw NetworkServiceError.fromDioException on DioException',
       () async {
         when(
-          () => dio.get<Map<String, dynamic>>(
+          () => dio.get(
             any(),
             data: any(named: 'data'),
             queryParameters: any(named: 'queryParameters'),
@@ -178,7 +178,7 @@ void main() {
       'should throw NetworkServiceError.fromParsingException on converter error',
       () async {
         when(
-          () => dio.get<Map<String, dynamic>>(
+          () => dio.get(
             any(),
             data: any(named: 'data'),
             queryParameters: any(named: 'queryParameters'),
@@ -214,7 +214,7 @@ void main() {
   group('put', () {
     test('should return converted response on success', () async {
       when(
-        () => dio.put<Map<String, dynamic>>(
+        () => dio.put(
           any(),
           data: any(named: 'data'),
           queryParameters: any(named: 'queryParameters'),
@@ -240,7 +240,7 @@ void main() {
       'should throw NetworkServiceError.fromDioException on DioException',
       () async {
         when(
-          () => dio.put<Map<String, dynamic>>(
+          () => dio.put(
             any(),
             data: any(named: 'data'),
             queryParameters: any(named: 'queryParameters'),
@@ -273,7 +273,7 @@ void main() {
       'should throw NetworkServiceError.fromParsingException on converter error',
       () async {
         when(
-          () => dio.put<Map<String, dynamic>>(
+          () => dio.put(
             any(),
             data: any(named: 'data'),
             queryParameters: any(named: 'queryParameters'),
@@ -310,7 +310,7 @@ void main() {
   group('delete', () {
     test('should return converted response on success', () async {
       when(
-        () => dio.delete<Map<String, dynamic>>(
+        () => dio.delete(
           any(),
           data: any(named: 'data'),
           queryParameters: any(named: 'queryParameters'),
@@ -337,7 +337,7 @@ void main() {
       'should throw NetworkServiceError.fromDioException on DioException',
       () async {
         when(
-          () => dio.delete<Map<String, dynamic>>(
+          () => dio.delete(
             any(),
             data: any(named: 'data'),
             queryParameters: any(named: 'queryParameters'),
@@ -368,7 +368,7 @@ void main() {
       'should throw NetworkServiceError.fromParsingException on converter error',
       () async {
         when(
-          () => dio.delete<Map<String, dynamic>>(
+          () => dio.delete(
             any(),
             data: any(named: 'data'),
             queryParameters: any(named: 'queryParameters'),

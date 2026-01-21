@@ -27,8 +27,9 @@ void showSnackbar(
 }) {
   final theme = Theme.of(context);
   final foregroundColor = type == null
-      ? Theme.of(context).colorScheme.onInverseSurface
+      ? theme.colorScheme.onInverseSurface
       : type.foregroundColor;
+
   final backgroundColor = type == null
       ? theme.colorScheme.inverseSurface
       : type.backgroundColor;

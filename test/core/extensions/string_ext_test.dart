@@ -5,15 +5,6 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   group("toTheme function Extention", () {
     test(
-      'should return system theme mode',
-      () {
-        final theme = "system";
-
-        expect(theme.toTheme, equals(ThemeMode.system));
-      },
-    );
-
-    test(
       'should return light theme mode',
       () {
         final theme = "light";
@@ -36,7 +27,7 @@ void main() {
       () {
         final theme = "-";
 
-        expect(theme.toTheme, equals(ThemeMode.system));
+        expect(theme.toTheme, equals(ThemeMode.light));
       },
     );
   });

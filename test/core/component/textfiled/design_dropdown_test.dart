@@ -1,3 +1,4 @@
+import 'package:base_project/core/component/sheet/responsive_sheet.dart';
 import 'package:base_project/core/component/textfield/design_dropdown.dart';
 import 'package:base_project/core/component/textfield/design_textfield.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +51,7 @@ void main() {
     await tester.pump();
 
     // Dialog opened
-    expect(find.byType(Dialog), findsOneWidget);
+    expect(find.byType(ResponsiveSheet), findsOneWidget);
     expect(find.text('Apple'), findsOneWidget);
     expect(find.text('Banana'), findsOneWidget);
     expect(find.text('Cherry'), findsOneWidget);
@@ -102,7 +103,7 @@ void main() {
 
     // Enter search query
     final searchField = find.descendant(
-      of: find.byType(Dialog),
+      of: find.byType(ResponsiveSheet),
       matching: find.byType(DesignTextfield),
     );
 

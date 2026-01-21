@@ -9,7 +9,8 @@ class LoggerInterceptor extends Interceptor {
       methodCount: 0,
       errorMethodCount: 5,
       lineLength: 80,
-      colors: true,
+      colors: false,
+      printEmojis: false,
     ),
   );
 

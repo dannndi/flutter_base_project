@@ -16,9 +16,9 @@ class NetworkService {
     CancelToken? cancelToken,
     void Function(int, int)? onSendProgress,
     void Function(int, int)? onReceiveProgress,
-    required R Function(Map<String, dynamic> response) converter,
+    required R Function(dynamic response) converter,
   }) async {
-    Response<Map<String, dynamic>> response;
+    Response response;
     try {
       response = await _dio.post(
         path,
@@ -34,7 +34,7 @@ class NetworkService {
     }
 
     try {
-      return converter(response.data!);
+      return converter(response.data);
     } catch (ex) {
       throw NetworkServiceError.fromParsingException(ex);
     }
@@ -47,9 +47,9 @@ class NetworkService {
     Options? options,
     CancelToken? cancelToken,
     void Function(int, int)? onReceiveProgress,
-    required R Function(Map<String, dynamic> response) converter,
+    required R Function(dynamic response) converter,
   }) async {
-    Response<Map<String, dynamic>> response;
+    Response response;
     try {
       response = await _dio.get(
         path,
@@ -78,11 +78,11 @@ class NetworkService {
     CancelToken? cancelToken,
     void Function(int, int)? onSendProgress,
     void Function(int, int)? onReceiveProgress,
-    required R Function(Map<String, dynamic> response) converter,
+    required R Function(dynamic response) converter,
   }) async {
-    Response<Map<String, dynamic>> response;
+    Response response;
     try {
-      response = await _dio.put<Map<String, dynamic>>(
+      response = await _dio.put(
         path,
         data: data,
         queryParameters: queryParameters,
@@ -108,9 +108,9 @@ class NetworkService {
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
-    required R Function(Map<String, dynamic> response) converter,
+    required R Function(dynamic response) converter,
   }) async {
-    Response<Map<String, dynamic>> response;
+    Response response;
     try {
       response = await _dio.delete(
         path,
