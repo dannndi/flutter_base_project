@@ -147,4 +147,49 @@ void main() {
     expect(find.byType(Icon), findsOneWidget);
     expect(find.byIcon(Icons.home), findsOneWidget);
   });
+
+  testWidgets("should show snackbar with suffix and hide default OK button", (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Builder(
+          builder: (context) {
+            return Scaffold(
+              body: Center(
+                child: DesignButton(
+                  text: "Show Snackbar",
+                  onPressed: () {
+                    showSnackbar(
+                      context,
+                      message: "Snackbar with suffix",
+                      suffix: (color) => Icon(
+                        Icons.close,
+                        key: const Key("suffix_icon"),
+                        color: color,
+                      ),
+                    );
+                  },
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+
+    // open snackbar
+    await tester.tap(find.text("Show Snackbar"));
+    await tester.pump();
+
+    // snackbar exists
+    expect(find.byType(SnackBar), findsOneWidget);
+
+    // suffix icon exists
+    expect(find.byKey(const Key("suffix_icon")), findsOneWidget);
+    expect(find.byIcon(Icons.close), findsOneWidget);
+
+    // OK button should NOT exist
+    expect(find.text("OK"), findsNothing);
+  });
 }
