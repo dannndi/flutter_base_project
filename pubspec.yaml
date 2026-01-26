@@ -39,9 +39,9 @@ dependencies:
 
   cupertino_icons: ^1.0.8
   # navigation
-  go_router: ^16.0.0
+  go_router: ^17.0.1
   # service location / DI alternative
-  get_it: ^8.0.3
+  get_it: ^9.2.0
   # http client
   dio: ^5.8.0+1
   # class generator
@@ -50,7 +50,7 @@ dependencies:
   # env
   flutter_dotenv: ^6.0.0
   # local storage
-  flutter_secure_storage: ^9.2.4
+  flutter_secure_storage: ^10.0.0
   # equality comparisons
   equatable: ^2.0.7
   # dart ext

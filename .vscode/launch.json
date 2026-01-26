@@ -1,0 +1,26 @@
+{
+    "version": "0.0.1",
+    "configurations": [
+        {
+            "name": "Base Project (Debug Mode)",
+            "request": "launch",
+            "program": "lib/main.dart",
+            "type": "dart",
+            
+        },
+        {
+            "name": "Base Project (Profile Mode)",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "flutterMode": "profile",
+        },
+        {
+            "name": "Base Project (Release Mode)",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "flutterMode": "release",
+        }
+    ]
+}
