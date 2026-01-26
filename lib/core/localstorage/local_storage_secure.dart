@@ -6,10 +6,7 @@ class LocalStorageSecure extends LocalStorage {
 
   @override
   Future<void> init() async {
-    final androidOptions = const AndroidOptions(
-      encryptedSharedPreferences: true,
-    );
-    storage = FlutterSecureStorage(aOptions: androidOptions);
+    storage = FlutterSecureStorage();
   }
 
   @override

@@ -86,4 +86,74 @@ void main() {
     final result = await localStorage.saveBool('key', true);
     expect(result, LocalStorageResult.failed);
   });
+
+  test('saveString returns failed when exception occurs', () async {
+    when(
+      () => mockStorage.write(key: 'key', value: 'value'),
+    ).thenThrow(Exception('error'));
+
+    final result = await localStorage.saveString('key', 'value');
+
+    expect(result, LocalStorageResult.failed);
+  });
+
+  test('saveInt returns failed when exception occurs', () async {
+    when(
+      () => mockStorage.write(key: 'key', value: '42'),
+    ).thenThrow(Exception('error'));
+
+    final result = await localStorage.saveInt('key', 42);
+
+    expect(result, LocalStorageResult.failed);
+  });
+
+  test('saveBool returns failed when exception occurs', () async {
+    when(
+      () => mockStorage.write(key: 'key', value: '1'),
+    ).thenThrow(Exception('error'));
+
+    final result = await localStorage.saveBool('key', true);
+
+    expect(result, LocalStorageResult.failed);
+  });
+
+  test('getString returns null when exception occurs', () async {
+    when(
+      () => mockStorage.read(key: 'key'),
+    ).thenThrow(Exception('error'));
+
+    final result = await localStorage.getString('key');
+
+    expect(result, isNull);
+  });
+
+  test('getInt returns null when exception occurs', () async {
+    when(
+      () => mockStorage.read(key: 'key'),
+    ).thenThrow(Exception('error'));
+
+    final result = await localStorage.getInt('key');
+
+    expect(result, isNull);
+  });
+
+  test('getBool returns false when exception occurs', () async {
+    when(
+      () => mockStorage.read(key: 'key'),
+    ).thenThrow(Exception('error'));
+
+    final result = await localStorage.getBool('key');
+
+    expect(result, false);
+  });
+
+  test('removeData returns failed when exception occurs', () async {
+    when(
+      () => mockStorage.delete(key: 'key'),
+    ).thenThrow(Exception('error'));
+
+    final result = await localStorage.removeData('key');
+
+    expect(result, LocalStorageResult.failed);
+  });
 }
