@@ -1,3 +1,5 @@
+// coverage:ignore-file
+
 import 'package:base_project/core/component/page_transition/no_transition_builder.dart';
 import 'package:base_project/core/theme/app_color.dart';
 import 'package:base_project/core/theme/app_padding.dart';

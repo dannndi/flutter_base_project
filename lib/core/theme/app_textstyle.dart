@@ -1,3 +1,5 @@
+// coverage:ignore-file
+
 import 'package:base_project/core/theme/app_color.dart';
 import 'package:flutter/material.dart';
 

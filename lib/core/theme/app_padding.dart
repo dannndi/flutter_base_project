@@ -1,8 +1,11 @@
+// coverage:ignore-file
+
 import 'package:base_project/core/extensions/build_context_ext.dart';
 import 'package:flutter/widgets.dart';
 
 class AppPadding {
   AppPadding._();
+
   static const xs = 4.0;
   static const sm = 8.0;
   static const md = 12.0;

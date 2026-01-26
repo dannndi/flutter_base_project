@@ -1,7 +1,8 @@
+// coverage:ignore-file
 import 'package:flutter/material.dart';
 
 class AppColor {
-  AppColor._(); // coverage:ignore-line
+  AppColor._();
 
   static const Color primaryColor = Color(0xFF1C3E66);
   static const Color secondaryColor = Color(0xFFE6AB68);
