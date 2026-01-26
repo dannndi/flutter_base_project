@@ -1,2 +1,2 @@
-// coverage:ignore-line
+// coverage:ignore-file
 enum BlocStatus { initial, loading, success, error }
