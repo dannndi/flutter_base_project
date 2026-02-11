@@ -1,4 +1,5 @@
 import 'package:base_project/core/theme/app_color.dart';
+import 'package:base_project/core/theme/app_padding.dart';
 import 'package:base_project/core/theme/app_radius.dart';
 import 'package:flutter/material.dart';
 
@@ -24,32 +25,63 @@ class DesignListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: title,
-      subtitle: subtitle != null
-          ? Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 8),
-                subtitle!,
-              ],
-            )
-          : null,
-      leading: leading,
-      trailing:
-          trailing ??
-          (showDefaultTrailing
-              ? Icon(Icons.arrow_forward_ios_rounded, size: 18)
-              : null),
-      shape:
-          shape ??
-          RoundedRectangleBorder(
-            borderRadius: AppRadius.medium,
-            side: BorderSide(
-              color: AppColor.neutral,
-            ),
-          ),
+    return InkWell(
       onTap: onTap,
+      borderRadius: AppRadius.medium,
+      child: Container(
+        padding: const EdgeInsets.symmetric(
+          vertical: AppPadding.md,
+          horizontal: AppPadding.lg,
+        ),
+        decoration: ShapeDecoration(
+          shape:
+              shape ??
+              RoundedRectangleBorder(
+                borderRadius: AppRadius.medium,
+                side: BorderSide(
+                  color: AppColor.neutral,
+                ),
+              ),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            if (leading != null) ...[
+              ?leading,
+              const SizedBox(width: 16),
+            ],
+            Expanded(
+              child: AnimatedSize(
+                duration: const Duration(milliseconds: 300),
+                alignment: Alignment.topCenter,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    DefaultTextStyle(
+                      style:
+                          Theme.of(context).textTheme.titleSmall ?? TextStyle(),
+                      child: title,
+                    ),
+                    if (subtitle != null) ...[
+                      const SizedBox(height: 4),
+                      subtitle!,
+                    ],
+                  ],
+                ),
+              ),
+            ),
+            if (trailing != null || showDefaultTrailing) ...[
+              const SizedBox(width: 16),
+              trailing ??
+                  (showDefaultTrailing
+                      ? const Icon(Icons.arrow_forward_ios_rounded, size: 18)
+                      : const SizedBox.shrink()),
+            ],
+          ],
+        ),
+      ),
     );
   }
 }

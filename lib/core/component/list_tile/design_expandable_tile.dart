@@ -26,40 +26,27 @@ class _DesignExpandableTileState extends State<DesignExpandableTile> {
 
   @override
   Widget build(BuildContext context) {
-    return DesignListTile(
-      title: Row(
-        spacing: 16,
-        children: [
-          Expanded(child: widget.title),
-          ValueListenableBuilder(
-            valueListenable: isExpandedNotifier,
-            builder: (context, isExpanded, child) {
-              return Icon(
+    return ValueListenableBuilder(
+      valueListenable: isExpandedNotifier,
+      builder: (context, isExpanded, child) {
+        return DesignListTile(
+          showDefaultTrailing: false,
+          title: Row(
+            spacing: 16,
+            children: [
+              Expanded(child: widget.title),
+              Icon(
                 isExpanded
                     ? Icons.keyboard_arrow_up_rounded
                     : Icons.keyboard_arrow_down_rounded,
-              );
-            },
+              ),
+            ],
           ),
-        ],
-      ),
-      subtitle: ValueListenableBuilder(
-        valueListenable: isExpandedNotifier,
-        builder: (context, isExpanded, child) {
-          if (!isExpanded) return const SizedBox();
-          return child ?? const SizedBox();
-        },
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 8),
-            widget.subtitle,
-          ],
-        ),
-      ),
-      showDefaultTrailing: false,
-      onTap: () {
-        isExpandedNotifier.value = !isExpandedNotifier.value;
+          subtitle: isExpanded ? widget.subtitle : null,
+          onTap: () {
+            isExpandedNotifier.value = !isExpandedNotifier.value;
+          },
+        );
       },
     );
   }
