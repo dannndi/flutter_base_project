@@ -38,7 +38,7 @@ class DesignDialog extends StatelessWidget {
       ),
       child: Container(
         width: context.responsiveValue(desktop: 420, tablet: 400, mobile: 340),
-        padding: AppPadding.large,
+        padding: AppPadding.xLarge,
         child: Column(
           spacing: 8,
           mainAxisSize: MainAxisSize.min,
@@ -46,11 +46,11 @@ class DesignDialog extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             if (image != null) ...[
-              const SizedBox(height: 4),
-              image!,
-              const SizedBox(height: 4),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: image!,
+              ),
             ],
-
             if (title != null)
               Text(
                 title ?? "",
@@ -66,7 +66,7 @@ class DesignDialog extends StatelessWidget {
                 ).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.normal),
               ),
             if (negativeText != null || positiveText != null) ...[
-              const SizedBox(height: 4),
+              const SizedBox(height: 8),
               Row(
                 spacing: 8,
                 children: [

@@ -20,6 +20,7 @@ class AppPadding {
   static const small = EdgeInsets.all(sm);
   static const medium = EdgeInsets.all(md);
   static const large = EdgeInsets.all(lg);
+  static const xLarge = EdgeInsets.all(xl);
 
   static const noneVertical = EdgeInsets.symmetric(vertical: 0);
   static const smallVertical = EdgeInsets.symmetric(vertical: sm);
