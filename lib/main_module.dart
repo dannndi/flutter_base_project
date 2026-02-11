@@ -6,15 +6,13 @@ import 'package:base_project/core/network/service/network_service.dart';
 import 'package:base_project/core/utils/app_event/app_event_broadcaster.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
 
 class MainModule {
   const MainModule._();
 
   static Future<void> init() async {
-    await dotenv.load(fileName: ".env");
-
+    print("TAGGS : ${Env.baseUrl}");
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
     // network

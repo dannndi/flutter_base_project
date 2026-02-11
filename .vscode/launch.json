@@ -4,8 +4,12 @@
         {
             "name": "Base Project (Debug Mode)",
             "request": "launch",
-            "program": "lib/main.dart",
             "type": "dart",
+            "program": "lib/main.dart",
+            "flutterMode": "debug",
+            "toolArgs": [
+                "--dart-define-from-file=config.json"
+            ]
         },
         {
             "name": "Base Project (Profile Mode)",
@@ -13,6 +17,9 @@
             "type": "dart",
             "program": "lib/main.dart",
             "flutterMode": "profile",
+            "toolArgs": [
+                "--dart-define-from-file=config.json"
+            ]
         },
         {
             "name": "Base Project (Release Mode)",
@@ -20,6 +27,9 @@
             "type": "dart",
             "program": "lib/main.dart",
             "flutterMode": "release",
+            "toolArgs": [
+                "--dart-define-from-file=config.json"
+            ]
         }
     ]
 }
