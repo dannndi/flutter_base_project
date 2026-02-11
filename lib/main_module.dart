@@ -12,7 +12,6 @@ class MainModule {
   const MainModule._();
 
   static Future<void> init() async {
-    print("TAGGS : ${Env.baseUrl}");
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
     // network
