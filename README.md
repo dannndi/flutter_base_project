@@ -17,14 +17,17 @@ dart pub global activate copy_template
 copy_template 
 ```
 
-Simply run for initial setup
+## Initialization
+#### 1. Run Initialization Script
 ```sh
 ./script/setup.sh
 ```
-
-Rename / Change (Manually)
+#### 2. Rename / Change (Manually)
 1. all remaining "com.example.base_project" to "your.bundle.id"
 2. all "base_project" to your "package_name"
+#### 3. Setup Environment variable
+1. Copy `config.json.example` to `config.json`
+
 
 ---
 
@@ -39,7 +42,7 @@ Simple build runner
 ```
 Create module
 ```sh
-./script/create_module.sh
+./script/gen_module.sh
 ```
 Generate translation
 ```sh
