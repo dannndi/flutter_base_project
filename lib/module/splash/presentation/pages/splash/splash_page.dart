@@ -1,4 +1,5 @@
 import 'package:base_project/core/route/app_route_name.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:go_router/go_router.dart';
@@ -29,7 +30,7 @@ class _SplashUIState extends State<SplashUI> {
   void initialize() async {
     // checking if login/not/anything
     await Future.delayed(const Duration(seconds: 2));
-    FlutterNativeSplash.remove();
+    if (!kIsWeb) FlutterNativeSplash.remove();
 
     if (mounted) {
       context.goNamed(AppRouteName.login);
