@@ -1,0 +1,30 @@
+flutter_native_splash:
+  #======================================================================
+  # platform
+  #======================================================================
+  android: true
+  ios: true
+  web: false
+  #======================================================================
+
+  #! FOR ALL PLATFORM, except Android 12+:
+  color: "#ffffff" 
+  color_dark: "#181818" 
+
+  # general image for all platform (except android 12+):
+  # allows you to specify an image used in the splash screen. It must be a
+  # png file and should be sized for 4x pixel density.
+  image: assets/icon/ic_splash_launcher.png
+  image_dark: assets/icon/ic_splash_launcher.png
+
+  #! ANDROID 12+ configuration:
+  android_12:
+    # background color
+    color: "#ffffff"
+    color_dark: "#181818"
+
+    image: assets/icon/ic_splash_launcher.png    
+    image_dark: assets/icon/ic_splash_launcher.png    
+
+    icon_background_color: "#ffffff"
+    icon_background_color_dark: "#181818"

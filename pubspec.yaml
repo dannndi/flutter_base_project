@@ -67,6 +67,8 @@ dependencies:
   logger: ^2.6.0
   #responsive sheet
   responsive_sheet: ^1.1.1
+  # native splash screen generator
+  flutter_native_splash: ^2.4.7
 
 dev_dependencies:
   flutter_test:

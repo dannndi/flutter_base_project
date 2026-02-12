@@ -9,14 +9,16 @@ import 'package:base_project/main_module.dart';
 import 'package:base_project/core/utils/url_strategy/setup_url_strategy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get_it/get_it.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 void main() async {
   setupUrlStrategy();
-
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await MainModule.init();
+
   runApp(const MyApp());
 }
 
