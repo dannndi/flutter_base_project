@@ -1,3 +1,3 @@
-abstract class ProfileRemoteDS {}
+abstract class ProfileRemoteDataSource {}
 
-class ProfileRemoteDSImpl extends ProfileRemoteDS {}
+class ProfileRemoteDataSourceImpl extends ProfileRemoteDataSource {}

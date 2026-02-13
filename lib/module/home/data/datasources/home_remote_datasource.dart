@@ -1,3 +1,3 @@
-abstract class HomeRemoteDS {}
+abstract class HomeRemoteDataSource {}
 
-class HomeRemoteDSImpl extends HomeRemoteDS {}
+class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {}

@@ -1,3 +1,3 @@
-abstract class SplashLocalDS {}
+abstract class SplashLocalDataSource {}
 
-class SplashLocalDSImpl extends SplashLocalDS {}
+class SplashLocalDataSourceImpl extends SplashLocalDataSource {}

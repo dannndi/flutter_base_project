@@ -1,3 +1,3 @@
-abstract class EventRemoteDS {}
+abstract class EventRemoteDataSource {}
 
-class EventRemoteDSImpl extends EventRemoteDS {}
+class EventRemoteDataSourceImpl extends EventRemoteDataSource {}

@@ -1,3 +1,3 @@
-abstract class AuthRemoteDS {}
+abstract class AuthRemoteDataSource {}
 
-class AuthRemoteDSImpl extends AuthRemoteDS {}
+class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {}

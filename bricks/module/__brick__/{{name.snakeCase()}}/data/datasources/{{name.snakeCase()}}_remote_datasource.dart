@@ -1,3 +1,3 @@
-abstract class {{name.pascalCase()}}RemoteDS {}
+abstract class {{name.pascalCase()}}RemoteDataSource {}
 
-class {{name.pascalCase()}}RemoteDSImpl extends {{name.pascalCase()}}RemoteDS {}
+class {{name.pascalCase()}}RemoteDataSourceImpl extends {{name.pascalCase()}}RemoteDataSource {}

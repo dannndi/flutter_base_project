@@ -1,3 +1,3 @@
-abstract class SponsorLocalDS {}
+abstract class SponsorLocalDataSource {}
 
-class SponsorLocalDSImpl extends SponsorLocalDS {}
+class SponsorLocalDataSourceImpl extends SponsorLocalDataSource {}

@@ -1,3 +1,3 @@
-abstract class SplashRemoteDS {}
+abstract class SplashRemoteDataSource {}
 
-class SplashRemoteDSImpl extends SplashRemoteDS {}
+class SplashRemoteDataSourceImpl extends SplashRemoteDataSource {}

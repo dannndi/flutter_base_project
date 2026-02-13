@@ -1,3 +1,3 @@
-abstract class EventLocalDS {}
+abstract class EventLocalDataSource {}
 
-class EventLocalDSImpl extends EventLocalDS {}
+class EventLocalDataSourceImpl extends EventLocalDataSource {}

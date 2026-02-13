@@ -1,3 +1,3 @@
-abstract class HomeLocalDS {}
+abstract class HomeLocalDataSource {}
 
-class HomeLocalDSImpl extends HomeLocalDS {}
+class HomeLocalDataSourceImpl extends HomeLocalDataSource {}

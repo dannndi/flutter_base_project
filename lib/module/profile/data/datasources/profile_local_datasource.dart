@@ -1,3 +1,3 @@
-abstract class ProfileLocalDS {}
+abstract class ProfileLocalDataSource {}
 
-class ProfileLocalDSImpl extends ProfileLocalDS {}
+class ProfileLocalDataSourceImpl extends ProfileLocalDataSource {}

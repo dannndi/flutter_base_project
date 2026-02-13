@@ -1,3 +1,3 @@
-abstract class AuthLocalDS {}
+abstract class AuthLocalDataSource {}
 
-class AuthLocalDSImpl extends AuthLocalDS {}
+class AuthLocalDataSourceImpl extends AuthLocalDataSource {}

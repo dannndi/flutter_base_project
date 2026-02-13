@@ -1,3 +1,3 @@
-abstract class {{name.pascalCase()}}LocalDS {}
+abstract class {{name.pascalCase()}}LocalDataSource {}
 
-class {{name.pascalCase()}}LocalDSImpl extends {{name.pascalCase()}}LocalDS {}
+class {{name.pascalCase()}}LocalDataSourceImpl extends {{name.pascalCase()}}LocalDataSource {}

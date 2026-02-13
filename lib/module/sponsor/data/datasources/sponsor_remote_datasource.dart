@@ -1,3 +1,3 @@
-abstract class SponsorRemoteDS {}
+abstract class SponsorRemoteDataSource {}
 
-class SponsorRemoteDSImpl extends SponsorRemoteDS {}
+class SponsorRemoteDataSourceImpl extends SponsorRemoteDataSource {}
