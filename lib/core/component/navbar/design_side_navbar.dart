@@ -1,18 +1,19 @@
 import 'package:base_project/core/extensions/build_context_ext.dart';
 import 'package:base_project/core/theme/app_color.dart';
-import 'package:base_project/module/dashboard/widget/floating_action_widget.dart';
 import 'package:flutter/material.dart';
 
 class DesignSideNavbar extends StatelessWidget {
   final int currentIndex;
   final void Function(int index) onTap;
   final List<BottomNavigationBarItem> bottomNavBarItems;
+  final List<Widget> additionalWidget;
 
   const DesignSideNavbar({
     super.key,
     required this.currentIndex,
     required this.onTap,
     required this.bottomNavBarItems,
+    this.additionalWidget = const [],
   });
 
   @override
@@ -105,7 +106,7 @@ class DesignSideNavbar extends StatelessWidget {
         children: [
           menus,
           const SizedBox(height: 48),
-          FloatingActionWidget(),
+          ...additionalWidget,
         ],
       ),
     );

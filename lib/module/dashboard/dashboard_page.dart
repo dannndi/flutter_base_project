@@ -1,6 +1,6 @@
+import 'package:base_project/core/component/navbar/design_side_navbar.dart';
 import 'package:base_project/core/extensions/build_context_ext.dart';
-import 'package:base_project/module/dashboard/widget/design_bottom_navbar.dart';
-import 'package:base_project/module/dashboard/widget/design_side_navbar.dart';
+import 'package:base_project/core/component/navbar/design_bottom_navbar.dart';
 import 'package:base_project/module/dashboard/widget/floating_action_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -80,14 +80,15 @@ class _DashboardPageState extends State<DashboardPage> {
               currentIndex: widget.child.currentIndex,
               onTap: onItemClicked,
               bottomNavBarItems: bottomNavBarItems.map((e) => e.item).toList(),
+              additionalWidget: [
+                FloatingActionWidget(),
+              ],
             ),
           Flexible(child: widget.child),
         ],
       ),
       floatingActionButton: _buildFloatingActionButton(context),
-      floatingActionButtonLocation: bottomNavBarItems.length % 2 == 0
-          ? FloatingActionButtonLocation.centerDocked
-          : FloatingActionButtonLocation.endContained,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: _buildBottomNavigation(context),
     );
   }
@@ -107,6 +108,7 @@ class _DashboardPageState extends State<DashboardPage> {
       currentIndex: widget.child.currentIndex,
       onTap: onItemClicked,
       bottomNavBarItems: bottomNavBarItems.map((e) => e.item).toList(),
+      fabLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 

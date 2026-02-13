@@ -6,12 +6,14 @@ class DesignBottomNavbar extends StatelessWidget {
   final int currentIndex;
   final void Function(int index) onTap;
   final List<BottomNavigationBarItem> bottomNavBarItems;
+  final FloatingActionButtonLocation? fabLocation;
 
   const DesignBottomNavbar({
     super.key,
     required this.currentIndex,
     required this.onTap,
     required this.bottomNavBarItems,
+    this.fabLocation,
   });
 
   @override
@@ -30,14 +32,25 @@ class DesignBottomNavbar extends StatelessWidget {
       },
     ).toList();
 
-    if (navItems.length % 2 == 0) {
+    const centerDockedLocations = {
+      FloatingActionButtonLocation.centerDocked,
+      FloatingActionButtonLocation.miniCenterDocked,
+    };
+
+    const endDockedLocations = {
+      FloatingActionButtonLocation.endContained,
+      FloatingActionButtonLocation.endDocked,
+      FloatingActionButtonLocation.miniEndDocked,
+    };
+
+    if (centerDockedLocations.contains(fabLocation)) {
       navItems.insert(
         (navItems.length / 2).floor(),
-        Spacer(flex: 5),
+        const Spacer(flex: 5),
       );
-    } else {
+    } else if (endDockedLocations.contains(fabLocation)) {
       navItems.add(
-        Spacer(flex: 7),
+        const Spacer(flex: 7),
       );
     }
 
