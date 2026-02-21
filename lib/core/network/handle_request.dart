@@ -54,6 +54,10 @@ FutureResult<T> handleRequest<T>({
 FutureResult<T> defaultNetworkServiceErrorHandler<T>(
   NetworkServiceError e,
 ) async {
+  if (e.failure != null) {
+    return Left(e.failure!);
+  }
+
   if (e.data == null) {
     return Left(
       ErrorMessageFailure(

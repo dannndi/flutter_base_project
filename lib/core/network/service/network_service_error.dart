@@ -98,7 +98,8 @@ class NetworkServiceError extends Equatable implements Exception {
           return NetworkServiceError(
             statusCode: error.response?.statusCode,
             code: jsonData["status"] ?? 500,
-            message: "Connection error",
+            message: "No Internet Connection",
+            failure: const NetworkFailure("No Internet Connection"),
             exceptionType: NetworkExceptionType.connectionError,
           );
         case DioExceptionType.unknown:
