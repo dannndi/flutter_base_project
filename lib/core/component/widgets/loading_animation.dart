@@ -1,6 +1,6 @@
 import 'dart:math' as math show sin, pi;
 
-import 'package:base_project/core/theme/app_color.dart';
+import 'package:base_project/core/extensions/build_context_ext.dart';
 import 'package:flutter/material.dart';
 
 class LoadingAnimation extends StatefulWidget {
@@ -76,7 +76,7 @@ class _AnimationCircle extends State<LoadingAnimation>
 
   Widget _itemBuilder(int index) => DecoratedBox(
     decoration: BoxDecoration(
-      color: widget.color ?? AppColor.primaryColor,
+      color: widget.color ?? context.colorScheme.primary,
       shape: BoxShape.circle,
     ),
   );

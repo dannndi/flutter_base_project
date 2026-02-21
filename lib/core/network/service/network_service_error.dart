@@ -31,7 +31,7 @@ class NetworkServiceError extends Equatable implements Exception {
     this.exceptionType = NetworkExceptionType.unknown,
     this.data,
     Failure? failure,
-  }) : failure = failure ?? NetworkFailure(message ?? "");
+  }) : failure = failure ?? ErrorMessageFailure(message ?? "");
 
   factory NetworkServiceError.fromDioException(dynamic error) {
     if (error is DioException) {
