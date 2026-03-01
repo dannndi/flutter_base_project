@@ -52,7 +52,7 @@ class _LoginUIState extends State<LoginUI> {
             );
           }
 
-          return Padding(
+          return SingleChildScrollView(
             padding: AppPadding.responsive(context),
             child: Row(
               spacing: 64,

@@ -52,7 +52,7 @@ class _RegisterUIState extends State<RegisterUI> {
             );
           }
 
-          return Padding(
+          return SingleChildScrollView(
             padding: AppPadding.responsive(context),
             child: Row(
               spacing: 64,
