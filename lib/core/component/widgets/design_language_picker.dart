@@ -119,7 +119,7 @@ class _DesignLanguagePickerWidget extends StatelessWidget {
                         borderRadius: AppRadius.xLarge,
                       ),
                       child: Text(
-                        "Selected",
+                        context.intl.selected,
                         style: Theme.of(context).textTheme.titleSmall?.copyWith(
                           color: Theme.of(context).primaryColor,
                         ),

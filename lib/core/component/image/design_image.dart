@@ -154,6 +154,9 @@ class DesignImage extends StatelessWidget {
         fit: fit ?? BoxFit.contain,
         clipBehavior: clipBehavior,
         alignment: alignment,
+        theme: localAssets.color != null
+            ? SvgTheme(currentColor: localAssets.color!)
+            : null,
         errorBuilder: (_, _, _) {
           return failedWidget ?? _failedWidget;
         },

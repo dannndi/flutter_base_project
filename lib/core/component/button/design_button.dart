@@ -39,8 +39,8 @@ class DesignButton extends StatelessWidget {
   final bool enabled;
   final VoidCallback? onPressed;
   final String? text;
-  final Icon? prefixIcon;
-  final Icon? suffixIcon;
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
   final Widget Function(Color color, TextStyle? style)? child;
   final DesignButtonSize size;
   final DesignButtonType type;
@@ -57,7 +57,6 @@ class DesignButton extends StatelessWidget {
     final textStyle = _getTextStyle(context, childColor);
     final borderRadius = _getBorderRadius();
 
-
     Widget? content = child?.call(childColor, textStyle);
 
     content ??= Row(
@@ -65,12 +64,11 @@ class DesignButton extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        if (prefixIcon != null) prefixIcon!,
+        ?prefixIcon,
         Text(text ?? '', style: textStyle),
-        if (suffixIcon != null) suffixIcon!,
+        ?suffixIcon,
       ],
     );
-
 
     switch (type) {
       case DesignButtonType.outlined:
