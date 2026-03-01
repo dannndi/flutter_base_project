@@ -1,6 +1,6 @@
 import 'package:base_project/core/env/env.dart';
-import 'package:base_project/core/localstorage/local_storage.dart';
-import 'package:base_project/core/localstorage/local_storage_secure.dart';
+import 'package:base_project/core/local_storage/local_storage.dart';
+import 'package:base_project/core/local_storage/local_storage_secure.dart';
 import 'package:base_project/core/network/http_client.dart';
 import 'package:base_project/core/network/service/network_service.dart';
 import 'package:base_project/core/utils/app_event/app_event_broadcaster.dart';

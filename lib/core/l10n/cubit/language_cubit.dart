@@ -1,4 +1,4 @@
-import 'package:base_project/core/localstorage/local_storage.dart';
+import 'package:base_project/core/local_storage/local_storage.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

@@ -1,4 +1,4 @@
-import 'package:base_project/core/localstorage/local_storage.dart';
+import 'package:base_project/core/local_storage/local_storage.dart';
 
 abstract class AuthLocalDataSource {}
 
