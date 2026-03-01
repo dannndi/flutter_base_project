@@ -1,5 +1,6 @@
 import 'package:base_project/core/extensions/build_context_ext.dart';
 import 'package:base_project/core/theme/app_color.dart';
+import 'package:base_project/core/theme/app_padding.dart';
 import 'package:flutter/material.dart';
 
 class DesignSideNavbar extends StatelessWidget {
@@ -91,7 +92,9 @@ class DesignSideNavbar extends StatelessWidget {
     );
 
     return Container(
-      padding: EdgeInsets.all(24),
+      padding: AppPadding.large.add(
+        EdgeInsets.only(top: MediaQuery.paddingOf(context).top),
+      ),
       decoration: BoxDecoration(
         color: Theme.of(context).scaffoldBackgroundColor,
         border: Border(
