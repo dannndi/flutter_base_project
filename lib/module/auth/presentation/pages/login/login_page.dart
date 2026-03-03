@@ -53,21 +53,26 @@ class _LoginUIState extends State<LoginUI> {
           }
 
           return SingleChildScrollView(
-            padding: AppPadding.responsive(context),
-            child: Row(
-              spacing: 64,
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Flexible(
-                  flex: context.isMobileSize ? 3 : 6,
-                  child: LoginContent(),
+            child: SizedBox(
+              height: context.screenHeight,
+              child: Padding(
+                padding: AppPadding.responsive(context),
+                child: Row(
+                  spacing: 64,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Flexible(
+                      flex: context.isMobileSize ? 3 : 6,
+                      child: LoginContent(),
+                    ),
+                    Flexible(
+                      flex: context.isMobileSize ? 7 : 4,
+                      child: LoginForm(key: formKey),
+                    ),
+                  ],
                 ),
-                Flexible(
-                  flex: context.isMobileSize ? 7 : 4,
-                  child: LoginForm(key: formKey),
-                ),
-              ],
+              ),
             ),
           );
         },

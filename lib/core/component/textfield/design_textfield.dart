@@ -2,6 +2,7 @@ import 'package:base_project/core/extensions/build_context_ext.dart';
 import 'package:base_project/core/theme/app_color.dart';
 import 'package:base_project/core/theme/app_radius.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 enum DesignTextfieldType { outlined, underline, none }
 
@@ -26,6 +27,7 @@ class DesignTextfield extends StatefulWidget {
     this.textAlignVertical,
     this.textInputAction,
     this.onHideText,
+    this.inputFormatters,
   });
 
   final DesignTextfieldType type;
@@ -46,6 +48,7 @@ class DesignTextfield extends StatefulWidget {
   final TextAlignVertical? textAlignVertical;
   final TextInputAction? textInputAction;
   final void Function(bool)? onHideText;
+  final List<TextInputFormatter>? inputFormatters;
 
   @override
   State<DesignTextfield> createState() => _DesignTextfieldState();
@@ -162,6 +165,7 @@ class _DesignTextfieldState extends State<DesignTextfield> {
             keyboardType: widget.keyboardType,
             textInputAction: widget.textInputAction,
             maxLines: obscure ? 1 : widget.maxLines,
+            inputFormatters: widget.inputFormatters,
           ),
         ),
       ],

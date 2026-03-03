@@ -180,6 +180,16 @@ class DesignImage extends StatelessWidget {
         clipBehavior: clipBehavior,
         alignment: alignment,
         shape: shape ?? BoxShape.rectangle,
+        borderRadius: borderRadius,
+        loadStateChanged: (state) {
+          if (state.extendedImageLoadState == LoadState.failed) {
+            return failedWidget ?? _failedWidget;
+          }
+          if (state.extendedImageLoadState == LoadState.loading) {
+            return loadingWidget ?? _loadingWidget;
+          }
+          return state.completedWidget;
+        },
       );
     }
 
